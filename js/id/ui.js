@@ -56,6 +56,13 @@ iD.ui = function(context) {
             .attr('class', 'button-wrap col1')
             .call(iD.ui.Save(context));
 
+        var simulate_button = limiter.append('button')
+            .attr('class', 'simulate')
+            .html("<span class='icon'></span><span class='label'>Simulate</span>")
+            .attr('title', 'Start the simularion')
+            .on('click', function() {
+            });
+
         bar.append('div')
             .attr('class', 'full-screen')
             .call(iD.ui.FullScreen(context));
