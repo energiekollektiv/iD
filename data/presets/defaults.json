@@ -6,7 +6,11 @@
         "line"
     ],
     "point": [
-        "point"
+        "point",
+		"type/demand",
+	    "type/volatile_generator",
+		"type/flexible_generator",
+		"type/storage"
     ],
     "vertex": [
         "vertex"

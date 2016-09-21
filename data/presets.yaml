@@ -1,63 +1,15 @@
 en:
   presets:
     categories:
-      category-route:
-        name: Route Features
+      category-energy:
+        name: Heat Category
     fields:
-      building:
-        # 'building=*'
-        label: Building
-      building_area:
-        # 'building=*'
-        label: Building
-      capacity:
-        # 'capacity=*'
-        label: Capacity
-        # capacity field placeholder
-        placeholder: '50, 100, 200...'
-      electrified:
-        # 'electrified=*'
-        label: Electrification
-        options:
-          # electrified=contact_line
-          contact_line: Contact Line
-          # electrified=no
-          'no': 'No'
-          # electrified=rail
-          rail: Electrified Rail
-          # electrified=yes
-          'yes': Yes (unspecified)
-        # electrified field placeholder
-        placeholder: 'Contact Line, Electrified Rail...'
-      fuel:
-        # 'fuel=*'
-        label: Fuel
-      generator/method:
-        # 'generator:method=*'
-        label: Method
-      generator/source:
-        # 'generator:source=*'
-        label: Source
-      generator/type:
-        # 'generator:type=*'
-        label: Type
+      energy_amount:
+        # 'energy_amount=*'
+        label: Energy Amount
       heat_demand:
         # 'heat_demand=*'
         label: Heat demand (GWh)
-      layer:
-        # 'layer=*'
-        label: Layer
-      length:
-        # 'length=*'
-        label: Length (Meters)
-      level:
-        # 'level=*'
-        label: Level
-      levels:
-        # 'building:levels=*'
-        label: Levels
-        # levels field placeholder
-        placeholder: '2, 4, 6...'
       location:
         # 'location=*'
         label: Location
@@ -66,62 +18,9 @@ en:
         label: Name
         # name field placeholder
         placeholder: Common name (if any)
-      network:
-        # 'network=*'
-        label: Network
-      oneway:
-        # 'oneway=*'
-        label: One Way
-        options:
-          # oneway=no
-          'no': 'No'
-          # oneway=undefined
-          undefined: Assumed to be No
-          # oneway=yes
-          'yes': 'Yes'
-      oneway_yes:
-        # 'oneway=*'
-        label: One Way
-        options:
-          # oneway=no
-          'no': 'No'
-          # oneway=undefined
-          undefined: Assumed to be Yes
-          # oneway=yes
-          'yes': 'Yes'
-      operator:
-        # 'operator=*'
-        label: Operator
-      place:
-        # 'place=*'
-        label: Type
-      power:
-        # 'power=*'
-        label: Type
-      power_supply:
-        # 'power_supply=*'
-        label: Power Supply
       relation:
         # 'type=*'
         label: Type
-      route:
-        # 'route=*'
-        label: Type
-      route_master:
-        # 'route_master=*'
-        label: Type
-      site:
-        # 'site=*'
-        label: Type
-      source:
-        # 'source=*'
-        label: Source
-      substation:
-        # 'substation=*'
-        label: Type
-      towertype:
-        # 'tower:type=*'
-        label: Tower type
     presets:
       area:
         # area=yes
@@ -133,65 +32,29 @@ en:
       point:
         name: Plant
         terms: "<translate with synonyms or related terms for 'Plant', separated by commas>"
-      power:
-        # 'power=*'
-        name: Power
-        terms: "<translate with synonyms or related terms for 'Power', separated by commas>"
-      power/generator:
-        # power=generator
-        name: Power Generator
-        terms: "<translate with synonyms or related terms for 'Power Generator', separated by commas>"
-      power/line:
-        # power=line
-        name: Power Line
-        terms: "<translate with synonyms or related terms for 'Power Line', separated by commas>"
-      power/minor_line:
-        # power=minor_line
-        name: Minor Power Line
-        terms: "<translate with synonyms or related terms for 'Minor Power Line', separated by commas>"
-      power/pole:
-        # power=pole
-        name: Power Pole
-        terms: "<translate with synonyms or related terms for 'Power Pole', separated by commas>"
-      power/sub_station:
-        # power=sub_station
-        name: Substation
-        terms: "<translate with synonyms or related terms for 'Substation', separated by commas>"
-      power/substation:
-        # power=substation
-        name: Substation
-        terms: "<translate with synonyms or related terms for 'Substation', separated by commas>"
-      power/tower:
-        # power=tower
-        name: High-Voltage Tower
-        terms: "<translate with synonyms or related terms for 'High-Voltage Tower', separated by commas>"
-      power/transformer:
-        # power=transformer
-        name: Transformer
-        terms: "<translate with synonyms or related terms for 'Transformer', separated by commas>"
       relation:
         name: Relation
         terms: "<translate with synonyms or related terms for 'Relation', separated by commas>"
-      type/route:
-        # type=route
-        name: Route
-        terms: "<translate with synonyms or related terms for 'Route', separated by commas>"
-      type/route/power:
-        # 'type=route, route=power'
-        name: Power Route
-        terms: "<translate with synonyms or related terms for 'Power Route', separated by commas>"
-      type/route_master:
-        # type=route_master
-        name: Route Master
-        terms: "<translate with synonyms or related terms for 'Route Master', separated by commas>"
+      type/demand:
+        # type=demand
+        name: Demand
+        terms: "<translate with synonyms or related terms for 'Demand', separated by commas>"
+      type/flexible_generator:
+        # type=flexible_generator
+        name: Flexible Generator
+        terms: "<translate with synonyms or related terms for 'Flexible Generator', separated by commas>"
       type/scenario:
         # type=scenario
         name: Scenario
         terms: "<translate with synonyms or related terms for 'Scenario', separated by commas>"
-      type/site:
-        # type=site
-        name: Site
-        terms: "<translate with synonyms or related terms for 'Site', separated by commas>"
+      type/storage:
+        # type=storage
+        name: Storage
+        terms: "<translate with synonyms or related terms for 'Storage', separated by commas>"
+      type/volatile_generator:
+        # type=volatile_generator
+        name: Volatile Generator
+        terms: "<translate with synonyms or related terms for 'Volatile Generator', separated by commas>"
       vertex:
         name: Other
         terms: "<translate with synonyms or related terms for 'Other', separated by commas>"

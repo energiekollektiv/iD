@@ -1,12 +1,11 @@
 {
-    "category-route": {
-        "geometry": "relation",
-        "name": "Route Features",
-        "icon": "route",
+    "category-energy": {
+        "geometry": "point",
+        "name": "Heat Category",
+        "icon": "category-roads",
         "members": [
-            "type/route/power",
-            "type/route_master",
-            "type/route"
+            "type/demand",
+            "type/storage"
         ]
     }
 }
