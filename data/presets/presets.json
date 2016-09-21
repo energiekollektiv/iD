@@ -28,119 +28,6 @@
         ],
         "matchScore": 0.1
     },
-    "power": {
-        "geometry": [
-            "point",
-            "vertex",
-            "line",
-            "area"
-        ],
-        "tags": {
-            "power": "*"
-        },
-        "fields": [
-            "power"
-        ],
-        "searchable": false,
-        "name": "Power"
-    },
-    "power/generator": {
-        "fields": [
-            "operator",
-            "generator/source",
-            "generator/method",
-            "generator/type"
-        ],
-        "geometry": [
-            "point",
-            "vertex",
-            "area"
-        ],
-        "tags": {
-            "power": "generator"
-        },
-        "name": "Power Generator"
-    },
-    "power/line": {
-        "geometry": [
-            "line"
-        ],
-        "tags": {
-            "power": "line"
-        },
-        "name": "Power Line",
-        "icon": "power-line"
-    },
-    "power/minor_line": {
-        "geometry": [
-            "line"
-        ],
-        "tags": {
-            "power": "minor_line"
-        },
-        "name": "Minor Power Line",
-        "icon": "power-line"
-    },
-    "power/pole": {
-        "geometry": [
-            "vertex"
-        ],
-        "tags": {
-            "power": "pole"
-        },
-        "name": "Power Pole"
-    },
-    "power/sub_station": {
-        "fields": [
-            "substation",
-            "operator",
-            "building"
-        ],
-        "geometry": [
-            "point",
-            "area"
-        ],
-        "tags": {
-            "power": "sub_station"
-        },
-        "name": "Substation",
-        "searchable": false
-    },
-    "power/substation": {
-        "fields": [
-            "substation",
-            "operator",
-            "building"
-        ],
-        "geometry": [
-            "point",
-            "area"
-        ],
-        "tags": {
-            "power": "substation"
-        },
-        "name": "Substation"
-    },
-    "power/tower": {
-        "geometry": [
-            "vertex"
-        ],
-        "tags": {
-            "power": "tower"
-        },
-        "name": "High-Voltage Tower"
-    },
-    "power/transformer": {
-        "geometry": [
-            "point",
-            "vertex",
-            "area"
-        ],
-        "tags": {
-            "power": "transformer"
-        },
-        "name": "Transformer"
-    },
     "relation": {
         "name": "Relation",
         "icon": "relation",
@@ -152,47 +39,27 @@
             "relation"
         ]
     },
-    "type/route": {
+    "type/demand": {
+        "icon": "city-24",
         "geometry": [
-            "relation"
+            "point"
         ],
         "tags": {
-            "type": "route"
+            "type": "demand"
         },
-        "name": "Route",
-        "icon": "route",
+        "name": "Demand",
         "fields": [
-            "route"
+            "energy_amount"
         ]
     },
-    "type/route/power": {
+    "type/flexible_generator": {
         "geometry": [
-            "relation"
+            "point"
         ],
         "tags": {
-            "type": "route",
-            "route": "power"
+            "type": "flexible_generator"
         },
-        "name": "Power Route",
-        "icon": "route-power",
-        "fields": [
-            "operator"
-        ]
-    },
-    "type/route_master": {
-        "geometry": [
-            "relation"
-        ],
-        "tags": {
-            "type": "route_master"
-        },
-        "name": "Route Master",
-        "icon": "route-master",
-        "fields": [
-            "route_master",
-            "operator",
-            "network"
-        ]
+        "name": "Flexible Generator"
     },
     "type/scenario": {
         "geometry": [
@@ -204,18 +71,23 @@
         "name": "Scenario",
         "icon": "marker"
     },
-    "type/site": {
+    "type/storage": {
         "geometry": [
-            "relation"
+            "point"
         ],
         "tags": {
-            "type": "site"
+            "type": "storage"
         },
-        "name": "Site",
-        "icon": "relation",
-        "fields": [
-            "site"
-        ]
+        "name": "Storage"
+    },
+    "type/volatile_generator": {
+        "geometry": [
+            "point"
+        ],
+        "tags": {
+            "type": "volatile_generator"
+        },
+        "name": "Volatile Generator"
     },
     "vertex": {
         "name": "Other",
