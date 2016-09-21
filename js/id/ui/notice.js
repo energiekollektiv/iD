@@ -21,5 +21,6 @@ iD.ui.Notice = function(context) {
             .on('move.notice', _.debounce(disableTooHigh, 500));
 
         disableTooHigh();
+        context.map().zoom(context.minEditableZoom() + 0.01);
     };
 };
