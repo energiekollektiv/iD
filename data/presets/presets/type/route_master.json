@@ -9,7 +9,6 @@
     "icon": "route-master",
     "fields": [
         "route_master",
-        "ref",
         "operator",
         "network"
     ]
