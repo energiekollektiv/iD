@@ -222,7 +222,11 @@ module.exports = function(o) {
 
         o = _;
 
-        o.url = o.url || 'http://www.openstreetmap.org';
+        // If iD uses this URL as the base for starting the OAuth dance, we
+        // know that the configuration URL that was set in
+        // `js/id/core/connection.js` when instantiating `osmAuth` does not get
+        // picked up, which is wrong.
+        o.url = o.url || 'http://localhost:5000/osm/oauth-lib-osmauth';
         o.landing = o.landing || 'land.html';
 
         o.singlepage = o.singlepage || false;
