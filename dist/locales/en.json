@@ -692,10 +692,6 @@
                 "name": "Demand",
                 "terms": ""
             },
-            "type/flexible_generator": {
-                "name": "Flexible Generator",
-                "terms": ""
-            },
             "type/hub_assignment": {
                 "name": "Hub Assignment",
                 "terms": ""

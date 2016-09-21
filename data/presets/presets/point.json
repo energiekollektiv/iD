@@ -1,15 +1,16 @@
 {
     "name": "Flexible Generator",
     "tags": {
-		"type": "flexible_generator",
-		"oemof_class":"linear_transformer"},
+        "type": "flexible_generator",
+        "oemof_class":"linear_transformer"},
     "geometry": ["point"],
     "matchScore": 0.1,
-	"fields": [
-		"energy_sector",
-	    "installed_power",
-		"efficiency",
-		"fuel_type"
+    "fields": [
+        "energy_sector",
+        "installed_power",
+        "efficiency",
+        "fuel_type",
+        "variable_costs"
     ]
 }
 
