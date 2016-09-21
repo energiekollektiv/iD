@@ -692,10 +692,6 @@
                 "name": "Demand",
                 "terms": ""
             },
-            "type/hub_assignment": {
-                "name": "Hub Assignment",
-                "terms": ""
-            },
             "type/scenario": {
                 "name": "Scenario",
                 "terms": ""
