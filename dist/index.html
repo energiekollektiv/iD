@@ -35,19 +35,12 @@
             
             var mybutton = document.createElement('button');
             mybutton.className = "simulate-button";
-            mybutton.innerHTML = `<div class='tooltip bottom' style='left: 656px; top: 40px;'>
-                                      <div class="tooltip-arrow"></div>
-                                      <div class='tooltip-inner'>
-                                          <span>Start the Simulation</span>
-                                          <div class="keyhint-wrap">
-                                              <span> Shortcut: </span>
-                                              <span class="keyhint">no so far</span>
-                                          </div>
-                                      </div>
-                                  </div>
-                                  <span class='label'>Simulate</span>`;
+            mybutton.innerHTML = "<span class='label'>Simulate</span>";
             var mylimiter = document.getElementsByClassName('limiter')[0];
             mylimiter.appendChild(mybutton);
+            mybutton.addEventListener ("click", function() {
+                alert("to start simulation: call gnn");
+            });
         </script>
     </body>
 </html>
