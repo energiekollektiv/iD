@@ -10,6 +10,7 @@
 	"fields": [
 		"energy_sector",
 	    "installed_power",
-		"variable_costs"
+		"variable_costs",
+		"dispatchable"
     ]
 }
