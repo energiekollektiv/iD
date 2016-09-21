@@ -97,7 +97,8 @@ module.exports = function(o) {
         window.authComplete = function(token) {
             if (timer) clearInterval(timer);
             var oauth_token = ohauth.stringQs(token.split('?')[1]);
-            get_access_token(oauth_token.oauth_token);
+            get_access_token(oauth_token.oauth_token,
+                             oauth_token.oauth_verifier);
             delete window.authComplete;
         };
 
@@ -105,11 +106,12 @@ module.exports = function(o) {
         //
         // At this point we have an `oauth_token`, brought in from a function
         // call on a landing page popup.
-        function get_access_token(oauth_token) {
+        function get_access_token(oauth_token, oauth_verifier) {
             var url = o.url + '/oauth/access_token',
                 params = timenonce(getAuth(o)),
                 request_token_secret = token('oauth_request_token_secret');
             params.oauth_token = oauth_token;
+            params.oauth_verifier = oauth_verifier;
             params.oauth_signature = ohauth.signature(
                 o.oauth_secret,
                 request_token_secret,
