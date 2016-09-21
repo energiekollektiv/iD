@@ -1,0 +1,9 @@
+{
+    "geometry": [
+        "point"
+    ],
+    "tags": {
+        "type": "storage"
+    },
+    "name": "Storage"
+}

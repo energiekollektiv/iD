@@ -1,0 +1,9 @@
+{
+    "geometry": [
+        "point"
+    ],
+    "tags": {
+        "type": "flexible_generator"
+    },
+    "name": "Flexible Generator"
+}

@@ -1,0 +1,9 @@
+{
+    "geometry": "point",
+    "name": "Heat Category",
+    "icon": "category-roads",
+    "members": [
+        "type/demand",
+        "type/storage"
+    ]
+}

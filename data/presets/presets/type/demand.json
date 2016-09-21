@@ -1,0 +1,12 @@
+{  "icon": "city-24",
+    "geometry": [
+        "point"
+    ],
+    "tags": {
+        "type": "demand"
+    },
+    "name": "Demand",
+	"fields": [
+        "energy_amount"
+    ]
+}

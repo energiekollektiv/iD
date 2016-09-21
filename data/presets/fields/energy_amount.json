@@ -1,0 +1,5 @@
+{
+    "key": "energy_amount",
+    "type": "number",
+    "label": "Energy Amount"
+}

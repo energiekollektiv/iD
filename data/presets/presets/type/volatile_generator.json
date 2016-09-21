@@ -1,0 +1,9 @@
+{
+    "geometry": [
+        "point"
+    ],
+    "tags": {
+        "type": "volatile_generator"
+    },
+    "name": "Volatile Generator"
+}
