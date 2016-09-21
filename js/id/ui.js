@@ -61,25 +61,20 @@ iD.ui = function(context) {
             .text("Simulate")
             .on('click', function() {
               var ids = id.selectedIDs();
-              console.log(ids);
               if ( ids.length != 1 ||
                    id.entity(ids[0]).tags.type != "Scenario") {
-                console.log("Not a scenario or multiple selections.");
                 alert("Please select exactly one scenario.");
                 return;
               };
               var scenario = id.entity(ids[0]);
               var pane = d3.select('div.entity-editor-pane');
-              console.log(pane);
               var parameters = prompt(
                 "Specify arguments with which to run the '" +
                 scenario.tags.name + "' scenario.",
                 "key-1=value-1&key-2=value-2");
               if (parameters != null){
-                console.log(parameters);
                 d3.xhr("/simulate?scenario=" + ids[0] + "&" + parameters)
                   .on("load", function(xhr){
-                    console.log(xhr);
                     window.open("/simulation/" + xhr.response)
                   })
                   .send("PUT");
