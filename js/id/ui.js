@@ -56,6 +56,18 @@ iD.ui = function(context) {
             .attr('class', 'button-wrap col1')
             .call(iD.ui.Save(context));
 
+        var simulate_button = limiter.append('button')
+            .attr('class', 'simulate')
+            .html("<span class='icon icon-pre-text save'></span><span class='label'>Save</span><small id='as-username'></small>")
+            .attr('title', 'Save changes to OpenStreetMap, making them visible to other users')
+            .call(bootstrap.tooltip()
+                .placement('bottom'))
+            .on('click', function() {
+            });
+
+        simulate_button.append('span')
+             .attr('class', 'count');
+
         bar.append('div')
             .attr('class', 'full-screen')
             .call(iD.ui.FullScreen(context));
