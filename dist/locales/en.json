@@ -612,8 +612,21 @@
             "energy_amount": {
                 "label": "Energy Amount"
             },
+            "energy_sector": {
+                "label": "Energy Sector",
+                "options": {
+                    "heat": "Heat",
+                    "electricity": "Electricity"
+                }
+            },
             "heat_demand": {
                 "label": "Heat demand (GWh)"
+            },
+            "installed_energy": {
+                "label": "Installed Energy"
+            },
+            "installed_power": {
+                "label": "Installed Power"
             },
             "location": {
                 "label": "Location"
@@ -628,11 +641,11 @@
         },
         "presets": {
             "area": {
-                "name": "Region",
+                "name": "Hub",
                 "terms": ""
             },
             "line": {
-                "name": "Connection",
+                "name": "Transmission",
                 "terms": ""
             },
             "point": {
@@ -649,6 +662,10 @@
             },
             "type/flexible_generator": {
                 "name": "Flexible Generator",
+                "terms": ""
+            },
+            "type/hub_connection": {
+                "name": "Hub Connection",
                 "terms": ""
             },
             "type/scenario": {

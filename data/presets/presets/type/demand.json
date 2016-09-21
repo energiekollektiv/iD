@@ -7,6 +7,8 @@
     },
     "name": "Demand",
 	"fields": [
+		"energy_sector",
         "energy_amount"
+		
     ]
 }

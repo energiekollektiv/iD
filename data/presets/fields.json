@@ -4,10 +4,31 @@
         "type": "number",
         "label": "Energy Amount"
     },
+    "energy_sector": {
+        "key": "energy_sector",
+        "type": "combo",
+        "label": "Energy Sector",
+        "strings": {
+            "options": {
+                "heat": "Heat",
+                "electricity": "Electricity"
+            }
+        }
+    },
     "heat_demand": {
         "key": "heat_demand",
         "type": "number",
         "label": "Heat demand (GWh)"
+    },
+    "installed_energy": {
+        "key": "installed_energy",
+        "type": "number",
+        "label": "Installed Energy"
+    },
+    "installed_power": {
+        "key": "installed_power",
+        "type": "number",
+        "label": "Installed Power"
     },
     "location": {
         "key": "location",

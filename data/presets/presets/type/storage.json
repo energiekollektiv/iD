@@ -5,5 +5,10 @@
     "tags": {
         "type": "storage"
     },
-    "name": "Storage"
+    "name": "Storage",
+	"fields": [
+		"energy_sector",
+	    "installed_power",
+		"installed_energy"
+    ]
 }

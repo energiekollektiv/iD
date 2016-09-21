@@ -5,5 +5,10 @@
     "tags": {
         "type": "flexible_generator"
     },
-    "name": "Flexible Generator"
+    "name": "Flexible Generator",
+	"fields": [
+		"energy_sector",
+	    "installed_power"
+		
+    ]
 }

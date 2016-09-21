@@ -1,9 +1,9 @@
 {
-    "name": "Region",
+    "name": "Hub",
     "tags": {
         "area": "yes"
     },
-    "fields": ["heat_demand"],
+    "fields": ["energy_sector"],
     "geometry": ["area"],
     "matchScore": 0.1
 }

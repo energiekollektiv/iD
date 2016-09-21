@@ -5,5 +5,10 @@
     "tags": {
         "type": "volatile_generator"
     },
-    "name": "Volatile Generator"
+    "name": "Volatile Generator",
+	"fields": [
+		"energy_sector",
+	    "installed_power"
+
+    ]
 }

@@ -1,11 +1,11 @@
 {
     "area": {
-        "name": "Region",
+        "name": "Hub",
         "tags": {
             "area": "yes"
         },
         "fields": [
-            "heat_demand"
+            "energy_sector"
         ],
         "geometry": [
             "area"
@@ -13,10 +13,14 @@
         "matchScore": 0.1
     },
     "line": {
-        "name": "Connection",
+        "name": "Transmission",
         "tags": {},
         "geometry": [
             "line"
+        ],
+        "fields": [
+            "energy_sector",
+            "installed_power"
         ],
         "matchScore": 0.1
     },
@@ -49,6 +53,7 @@
         },
         "name": "Demand",
         "fields": [
+            "energy_sector",
             "energy_amount"
         ]
     },
@@ -59,7 +64,21 @@
         "tags": {
             "type": "flexible_generator"
         },
-        "name": "Flexible Generator"
+        "name": "Flexible Generator",
+        "fields": [
+            "energy_sector",
+            "installed_power"
+        ]
+    },
+    "type/hub_connection": {
+        "geometry": [
+            "relation"
+        ],
+        "tags": {
+            "type": "hub_connections"
+        },
+        "name": "Hub Connection",
+        "icon": "marker"
     },
     "type/scenario": {
         "geometry": [
@@ -78,7 +97,12 @@
         "tags": {
             "type": "storage"
         },
-        "name": "Storage"
+        "name": "Storage",
+        "fields": [
+            "energy_sector",
+            "installed_power",
+            "installed_energy"
+        ]
     },
     "type/volatile_generator": {
         "geometry": [
@@ -87,7 +111,11 @@
         "tags": {
             "type": "volatile_generator"
         },
-        "name": "Volatile Generator"
+        "name": "Volatile Generator",
+        "fields": [
+            "energy_sector",
+            "installed_power"
+        ]
     },
     "vertex": {
         "name": "Other",

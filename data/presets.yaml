@@ -7,9 +7,23 @@ en:
       energy_amount:
         # 'energy_amount=*'
         label: Energy Amount
+      energy_sector:
+        # 'energy_sector=*'
+        label: Energy Sector
+        options:
+          # energy_sector=electricity
+          electricity: Electricity
+          # energy_sector=heat
+          heat: Heat
       heat_demand:
         # 'heat_demand=*'
         label: Heat demand (GWh)
+      installed_energy:
+        # 'installed_energy=*'
+        label: Installed Energy
+      installed_power:
+        # 'installed_power=*'
+        label: Installed Power
       location:
         # 'location=*'
         label: Location
@@ -24,11 +38,11 @@ en:
     presets:
       area:
         # area=yes
-        name: Region
-        terms: "<translate with synonyms or related terms for 'Region', separated by commas>"
+        name: Hub
+        terms: "<translate with synonyms or related terms for 'Hub', separated by commas>"
       line:
-        name: Connection
-        terms: "<translate with synonyms or related terms for 'Connection', separated by commas>"
+        name: Transmission
+        terms: "<translate with synonyms or related terms for 'Transmission', separated by commas>"
       point:
         name: Plant
         terms: "<translate with synonyms or related terms for 'Plant', separated by commas>"
@@ -43,6 +57,10 @@ en:
         # type=flexible_generator
         name: Flexible Generator
         terms: "<translate with synonyms or related terms for 'Flexible Generator', separated by commas>"
+      type/hub_connection:
+        # type=hub_connections
+        name: Hub Connection
+        terms: "<translate with synonyms or related terms for 'Hub Connection', separated by commas>"
       type/scenario:
         # type=scenario
         name: Scenario

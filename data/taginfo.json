@@ -26,6 +26,10 @@
         },
         {
             "key": "type",
+            "value": "hub_connections"
+        },
+        {
+            "key": "type",
             "value": "scenario"
         },
         {

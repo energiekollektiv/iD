@@ -3,7 +3,8 @@
         "area"
     ],
     "line": [
-        "line"
+        "line",
+		"type/transmission"
     ],
     "point": [
         "point",
@@ -16,6 +17,8 @@
         "vertex"
     ],
     "relation": [
-        "relation"
+        "relation",
+		"type/scenario",
+		"type/hub_connection"
     ]
 }

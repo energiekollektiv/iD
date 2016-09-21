@@ -1,6 +1,8 @@
 {
-    "name": "Connection",
+    "name": "Transmission",
     "tags": {},
     "geometry": ["line"],
+	"fields": ["energy_sector",
+	    	   "installed_power"],
     "matchScore": 0.1
 }
