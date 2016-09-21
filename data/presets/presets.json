@@ -93,7 +93,8 @@
             "energy_sector",
             "installed_power",
             "efficiency",
-            "fuel_type"
+            "fuel_type",
+            "variable_costs"
         ]
     },
     "type/hub_assignment": {
@@ -124,7 +125,7 @@
             "point"
         ],
         "tags": {
-            "type": "storage"
+            "type": "Storage"
         },
         "name": "Storage",
         "fields": [
@@ -139,7 +140,7 @@
             "point"
         ],
         "tags": {
-            "type": "source"
+            "type": "Source"
         },
         "name": "Volatile Generator",
         "fields": [
