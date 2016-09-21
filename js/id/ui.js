@@ -119,7 +119,7 @@ iD.ui = function(context) {
             .append('a')
             .attr('target', '_blank')
             .attr('tabindex', -1)
-            .attr('href', 'https://github.com/openstreetmap/iD')
+            .attr('href', 'https://github.com/openmodsh')
             .text(iD.version);
 
         var issueLinks = aboutList.append('li');
@@ -127,22 +127,23 @@ iD.ui = function(context) {
         issueLinks.append('a')
             .attr('target', '_blank')
             .attr('tabindex', -1)
-            .attr('href', 'https://github.com/openstreetmap/iD/issues')
+            .attr('href', 'https://github.com/openmodsh/issues')
             .call(iD.svg.Icon('#icon-bug', 'light'))
             .call(bootstrap.tooltip()
                 .title(t('report_a_bug'))
                 .placement('top')
             );
-
+/*
         issueLinks.append('a')
             .attr('target', '_blank')
             .attr('tabindex', -1)
-            .attr('href', 'https://github.com/openstreetmap/iD/blob/master/CONTRIBUTING.md#translating')
+            .attr('href', 'https://github.com/openmodsh/CONTRIBUTING.md#translating')
             .call(iD.svg.Icon('#icon-translate', 'light'))
             .call(bootstrap.tooltip()
                 .title(t('help_translate'))
                 .placement('top')
             );
+*/
 
         aboutList.append('li')
             .attr('class', 'feature-warning')

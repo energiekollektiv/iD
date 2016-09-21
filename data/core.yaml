@@ -1,17 +1,17 @@
 en:
   modes:
     add_area:
-      title: Area
-      description: "Add parks, buildings, lakes or other areas to the map."
-      tail: "Click on the map to start drawing an area, like a park, lake, or building."
+      title: Region
+      description: "Add a region to use with the model."
+      tail: "Click on the map to start drawing a region, like a district or island."
     add_line:
-      title: Line
-      description: "Add highways, streets, pedestrian paths, canals or other lines to the map."
-      tail: "Click on the map to start drawing a road, path, or route."
+      title: Connection
+      description: "Add a connection e.g. between plants and or regions."
+      tail: "Click on the map to start drawing connection."
     add_point:
-      title: Point
-      description: "Add restaurants, monuments, postal boxes or other points to the map."
-      tail: Click on the map to add a point.
+      title: Plant
+      description: "Add a plant or a consumer to use with the model."
+      tail: "Click on the map to add a point."
     browse:
       title: Browse
       description: Pan and zoom the map.
@@ -371,23 +371,23 @@ en:
       memberlist: 'Relation members were changed by both you and {user}.'
       tags: 'You changed the <b>{tag}</b> tag to "{local}" and {user} changed it to "{remote}".'
   success:
-    edited_osm: "Edited OSM!"
-    just_edited: "You just edited OpenStreetMap!"
-    view_on_osm: "View on OSM"
-    facebook: "Share on Facebook"
-    twitter: "Share on Twitter"
-    google: "Share on Google+"
-    help_html: Your changes should appear in the "Standard" layer in a few minutes. Other layers, and certain features, may take longer.
-    help_link_text: Details
-    help_link_url: "https://wiki.openstreetmap.org/wiki/FAQ#I_have_just_made_some_changes_to_the_map._How_do_I_get_to_see_my_changes.3F"
+    edited_osm: "Edited your scenario!"
+    just_edited: "You just edited your scenario!"
+#    view_on_osm: "View on OSM"
+#    facebook: "Share on Facebook"
+#    twitter: "Share on Twitter"
+#    google: "Share on Google+"
+    help_html: If you want to simulate your scenario, just hit the run button.
+    help_link_text: Start Simulation
+    help_link_url: "https://soontocome"
   confirm:
     okay: "Okay"
     cancel: "Cancel"
   splash:
-    welcome: Welcome to the iD OpenStreetMap editor
-    text: "iD is a friendly but powerful tool for contributing to the world's best free world map. This is version {version}. For more information see {website} and report bugs at {github}."
+    welcome: Welcome to openMod.sh
+    text: "openMod.sh is an Open Source Energy Model for Schleswig-Holstein. This is version {version}. For more information see {website} and report bugs at {github}."
     walkthrough: "Start the Walkthrough"
-    start: "Edit Now"
+    start: "Start modelling"
   source_switch:
     live: live
     lose_changes: "You have unsaved changes. Switching the map server will discard them. Are you sure you want to switch servers?"
