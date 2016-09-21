@@ -1,7 +1,8 @@
 {
     "name": "Flexible Generator",
     "tags": {
-		"type": "LinearTransformer"},
+		"type": "flexible_generator",
+		"oemof_class":"linear_transformer"},
     "geometry": ["point"],
     "matchScore": 0.1,
 	"fields": [

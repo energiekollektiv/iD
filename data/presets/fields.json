@@ -1,4 +1,9 @@
 {
+    "dispatchable": {
+        "key": "dispatchable",
+        "type": "check",
+        "label": "Dispatchable"
+    },
     "efficiency": {
         "key": "efficiency",
         "type": "number",

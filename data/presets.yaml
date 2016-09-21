@@ -4,6 +4,9 @@ en:
       category-energy:
         name: Heat Category
     fields:
+      dispatchable:
+        # 'dispatchable=*'
+        label: Dispatchable
       efficiency:
         # 'efficiency=*'
         label: Efficiency
@@ -84,15 +87,15 @@ en:
         name: Hub Assignment
         terms: "<translate with synonyms or related terms for 'Hub Assignment', separated by commas>"
       type/combined_flexible_generator:
-        # type=LinearTransformer
+        # 'type=combined_flexible_generator, oemof_class=linear_transformer'
         name: Combined Flexible Generator
         terms: "<translate with synonyms or related terms for 'Combined Flexible Generator', separated by commas>"
       type/demand:
-        # type=Sink
+        # 'type=demand, oemof_class=sink'
         name: Demand
         terms: "<translate with synonyms or related terms for 'Demand', separated by commas>"
       type/flexible_generator:
-        # type=LinearTransformer
+        # 'type=flexible_generator, oemof_class=linear_transformer'
         name: Flexible Generator
         terms: "<translate with synonyms or related terms for 'Flexible Generator', separated by commas>"
       type/hub_assignment:
@@ -104,11 +107,11 @@ en:
         name: Scenario
         terms: "<translate with synonyms or related terms for 'Scenario', separated by commas>"
       type/storage:
-        # type=storage
+        # 'type=storage, oemof_class=storage'
         name: Storage
         terms: "<translate with synonyms or related terms for 'Storage', separated by commas>"
       type/volatile_generator:
-        # type=source
+        # 'type=volatile_generator, oemof_class=source'
         name: Volatile Generator
         terms: "<translate with synonyms or related terms for 'Volatile Generator', separated by commas>"
       vertex:

@@ -609,6 +609,9 @@
             }
         },
         "fields": {
+            "dispatchable": {
+                "label": "Dispatchable"
+            },
             "efficiency": {
                 "label": "Efficiency"
             },

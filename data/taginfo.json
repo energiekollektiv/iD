@@ -25,16 +25,16 @@
             "value": "LinearTransformer"
         },
         {
-            "key": "type",
-            "value": "LinearTransformer"
+            "key": "oemof_class",
+            "value": "linear_transformer"
         },
         {
-            "key": "type",
-            "value": "Sink"
+            "key": "oemof_class",
+            "value": "sink"
         },
         {
-            "key": "type",
-            "value": "LinearTransformer"
+            "key": "oemof_class",
+            "value": "linear_transformer"
         },
         {
             "key": "type",
@@ -45,11 +45,11 @@
             "value": "scenario"
         },
         {
-            "key": "type",
+            "key": "oemof_class",
             "value": "storage"
         },
         {
-            "key": "type",
+            "key": "oemof_class",
             "value": "source"
         }
     ]
