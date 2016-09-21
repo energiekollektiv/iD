@@ -1,0 +1,5 @@
+{
+    "key": "heat_demand",
+    "type": "number",
+    "label": "Heat demand (GWh)"
+}

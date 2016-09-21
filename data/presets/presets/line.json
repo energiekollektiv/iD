@@ -1,5 +1,5 @@
 {
-    "name": "Line",
+    "name": "Connection",
     "tags": {},
     "geometry": ["line"],
     "matchScore": 0.1

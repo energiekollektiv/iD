@@ -1,23 +1,17 @@
 {
     "area": [
-        "power/transformer",
         "area"
     ],
     "line": [
-        "power/line",
         "line"
     ],
     "point": [
-        "power/transformer",
         "point"
     ],
     "vertex": [
-        "power/transformer",
         "vertex"
     ],
     "relation": [
-        "category-route",
-        "type/site",
         "relation"
     ]
 }

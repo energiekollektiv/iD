@@ -1,16 +1,19 @@
 {
     "area": {
-        "name": "Area",
+        "name": "Region",
         "tags": {
             "area": "yes"
         },
+        "fields": [
+            "heat_demand"
+        ],
         "geometry": [
             "area"
         ],
         "matchScore": 0.1
     },
     "line": {
-        "name": "Line",
+        "name": "Connection",
         "tags": {},
         "geometry": [
             "line"
@@ -18,7 +21,7 @@
         "matchScore": 0.1
     },
     "point": {
-        "name": "Point",
+        "name": "Plant",
         "tags": {},
         "geometry": [
             "point"

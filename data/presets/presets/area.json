@@ -1,8 +1,9 @@
 {
-    "name": "Area",
+    "name": "Region",
     "tags": {
         "area": "yes"
     },
+    "fields": ["heat_demand"],
     "geometry": ["area"],
     "matchScore": 0.1
 }

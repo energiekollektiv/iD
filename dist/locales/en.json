@@ -1,7 +1,7 @@
 {
     "modes": {
         "add_area": {
-            "title": "Regions",
+            "title": "Region",
             "description": "Add a region to use with the model.",
             "tail": "Click on the map to start drawing a region, like a district or island."
         },
@@ -641,6 +641,9 @@
             "generator/type": {
                 "label": "Type"
             },
+            "heat_demand": {
+                "label": "Heat demand (GWh)"
+            },
             "layer": {
                 "label": "Layer"
             },
@@ -716,15 +719,15 @@
         },
         "presets": {
             "area": {
-                "name": "Area",
+                "name": "Region",
                 "terms": ""
             },
             "line": {
-                "name": "Line",
+                "name": "Connection",
                 "terms": ""
             },
             "point": {
-                "name": "Point",
+                "name": "Plant",
                 "terms": ""
             },
             "power": {

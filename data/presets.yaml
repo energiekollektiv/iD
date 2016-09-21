@@ -41,6 +41,9 @@ en:
       generator/type:
         # 'generator:type=*'
         label: Type
+      heat_demand:
+        # 'heat_demand=*'
+        label: Heat demand (GWh)
       layer:
         # 'layer=*'
         label: Layer
@@ -122,14 +125,14 @@ en:
     presets:
       area:
         # area=yes
-        name: Area
-        terms: "<translate with synonyms or related terms for 'Area', separated by commas>"
+        name: Region
+        terms: "<translate with synonyms or related terms for 'Region', separated by commas>"
       line:
-        name: Line
-        terms: "<translate with synonyms or related terms for 'Line', separated by commas>"
+        name: Connection
+        terms: "<translate with synonyms or related terms for 'Connection', separated by commas>"
       point:
-        name: Point
-        terms: "<translate with synonyms or related terms for 'Point', separated by commas>"
+        name: Plant
+        terms: "<translate with synonyms or related terms for 'Plant', separated by commas>"
       power:
         # 'power=*'
         name: Power

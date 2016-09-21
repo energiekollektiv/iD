@@ -51,6 +51,11 @@
         "type": "combo",
         "label": "Type"
     },
+    "heat_demand": {
+        "key": "heat_demand",
+        "type": "number",
+        "label": "Heat demand (GWh)"
+    },
     "layer": {
         "key": "layer",
         "type": "combo",
