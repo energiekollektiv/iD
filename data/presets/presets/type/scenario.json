@@ -1,0 +1,10 @@
+{
+    "geometry": [
+        "relation"
+    ],
+    "tags": {
+        "type": "scenario"
+    },
+    "name": "Scenario",
+    "icon": "marker"
+}

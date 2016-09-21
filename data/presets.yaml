@@ -184,6 +184,10 @@ en:
         # type=route_master
         name: Route Master
         terms: "<translate with synonyms or related terms for 'Route Master', separated by commas>"
+      type/scenario:
+        # type=scenario
+        name: Scenario
+        terms: "<translate with synonyms or related terms for 'Scenario', separated by commas>"
       type/site:
         # type=site
         name: Site

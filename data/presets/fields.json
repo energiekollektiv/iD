@@ -141,7 +141,11 @@
     "relation": {
         "key": "type",
         "type": "combo",
-        "label": "Type"
+        "label": "Type",
+        "options": [
+            "Plant",
+            "Scenario"
+        ]
     },
     "route": {
         "key": "route",

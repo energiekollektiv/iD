@@ -65,6 +65,10 @@
         },
         {
             "key": "type",
+            "value": "scenario"
+        },
+        {
+            "key": "type",
             "value": "site"
         }
     ]

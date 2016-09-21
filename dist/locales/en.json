@@ -782,6 +782,10 @@
                 "name": "Route Master",
                 "terms": ""
             },
+            "type/scenario": {
+                "name": "Scenario",
+                "terms": ""
+            },
             "type/site": {
                 "name": "Site",
                 "terms": ""

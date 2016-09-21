@@ -194,6 +194,16 @@
             "network"
         ]
     },
+    "type/scenario": {
+        "geometry": [
+            "relation"
+        ],
+        "tags": {
+            "type": "scenario"
+        },
+        "name": "Scenario",
+        "icon": "marker"
+    },
     "type/site": {
         "geometry": [
             "relation"
