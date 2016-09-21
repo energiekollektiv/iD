@@ -9,6 +9,7 @@
 	"fields": [
 		"energy_sector",
 	    "installed_power",
-		"efficiency"
+		"efficiency",
+		"fuel_type"
     ]
 }

@@ -20,6 +20,24 @@ en:
           heat: Heat
           # energy_sector=powerheat
           powerheat: Power and Heat
+      fuel_type:
+        # 'fuel_type=*'
+        label: Fuel Type
+        options:
+          # fuel_type=biomass
+          biomass: Biomass
+          # fuel_type=coal
+          coal: Coal
+          # fuel_type=gas
+          gas: Gas
+          # fuel_type=heat
+          heat: Heat
+          # fuel_type=lignite
+          lignite: Lignite
+          # fuel_type=oil
+          oil: oil
+          # fuel_type=waste
+          waste: Waste
       heat_demand:
         # 'heat_demand=*'
         label: Heat demand (GWh)
@@ -40,6 +58,9 @@ en:
       scenario_year:
         # 'type=*'
         label: Type
+      variable_costs:
+        # 'variable_costs=*'
+        label: Variable Costs
     presets:
       area:
         # area=yes

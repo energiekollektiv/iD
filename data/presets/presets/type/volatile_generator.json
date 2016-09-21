@@ -8,7 +8,7 @@
     "name": "Volatile Generator",
 	"fields": [
 		"energy_sector",
-	    "installed_power"
-
+	    "installed_power",
+		"variable_costs"
     ]
 }

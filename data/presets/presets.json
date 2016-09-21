@@ -39,7 +39,8 @@
         "fields": [
             "energy_sector",
             "installed_power",
-            "efficiency"
+            "efficiency",
+            "fuel_type"
         ]
     },
     "relation": {
@@ -61,7 +62,9 @@
         "fields": [
             "energy_sector",
             "installed_power",
-            "efficiency"
+            "efficiency",
+            "fuel_type",
+            "variable_costs"
         ]
     },
     "type/demand": {
@@ -89,7 +92,8 @@
         "fields": [
             "energy_sector",
             "installed_power",
-            "efficiency"
+            "efficiency",
+            "fuel_type"
         ]
     },
     "type/hub_assignment": {
@@ -126,7 +130,8 @@
         "fields": [
             "energy_sector",
             "installed_power",
-            "installed_energy"
+            "installed_energy",
+            "variable_costs"
         ]
     },
     "type/volatile_generator": {
@@ -139,7 +144,8 @@
         "name": "Volatile Generator",
         "fields": [
             "energy_sector",
-            "installed_power"
+            "installed_power",
+            "variable_costs"
         ]
     },
     "vertex": {

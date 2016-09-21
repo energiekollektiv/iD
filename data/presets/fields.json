@@ -21,6 +21,22 @@
             }
         }
     },
+    "fuel_type": {
+        "key": "fuel_type",
+        "type": "combo",
+        "label": "Fuel Type",
+        "strings": {
+            "options": {
+                "heat": "Heat",
+                "gas": "Gas",
+                "oil": "oil",
+                "coal": "Coal",
+                "lignite": "Lignite",
+                "waste": "Waste",
+                "biomass": "Biomass"
+            }
+        }
+    },
     "heat_demand": {
         "key": "heat_demand",
         "type": "number",
@@ -51,5 +67,10 @@
         "key": "type",
         "type": "number",
         "label": "Type"
+    },
+    "variable_costs": {
+        "key": "variable_costs",
+        "type": "number",
+        "label": "Variable Costs"
     }
 }

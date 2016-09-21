@@ -9,6 +9,7 @@
 	"fields": [
 		"energy_sector",
 	    "installed_power",
-		"installed_energy"
+		"installed_energy",
+		"variable_costs"
     ]
 }

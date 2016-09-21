@@ -623,6 +623,18 @@
                     "powerheat": "Power and Heat"
                 }
             },
+            "fuel_type": {
+                "label": "Fuel Type",
+                "options": {
+                    "heat": "Heat",
+                    "gas": "Gas",
+                    "oil": "oil",
+                    "coal": "Coal",
+                    "lignite": "Lignite",
+                    "waste": "Waste",
+                    "biomass": "Biomass"
+                }
+            },
             "heat_demand": {
                 "label": "Heat demand (GWh)"
             },
@@ -641,6 +653,9 @@
             },
             "scenario_year": {
                 "label": "Type"
+            },
+            "variable_costs": {
+                "label": "Variable Costs"
             }
         },
         "presets": {
