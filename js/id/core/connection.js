@@ -5,7 +5,7 @@ iD.Connection = function(useHttps) {
 
     var event = d3.dispatch('authenticating', 'authenticated', 'auth', 'loading', 'loaded'),
         protocol = useHttps ? 'https:' : 'http:',
-        url = 'http://localhost:5000/osm',
+        url = '/osm',
         connection = {},
         inflight = {},
         loadedTiles = {},
