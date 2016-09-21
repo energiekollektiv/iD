@@ -28,19 +28,10 @@
                   .imagery(iD.data.imagery)
                   .taginfo(iD.services.taginfo())
                   .minEditableZoom(9);
-
                 d3.select('#id-container')
                     .call(id.ui());
             }
-            
-            var mybutton = document.createElement('button');
-            mybutton.className = "simulate-button";
-            mybutton.innerHTML = "<span class='label'>Simulate</span>";
-            var mylimiter = document.getElementsByClassName('limiter')[0];
-            mylimiter.appendChild(mybutton);
-            mybutton.addEventListener ("click", function() {
-                alert("to start simulation: call gnn");
-            });
+
         </script>
     </body>
 </html>
