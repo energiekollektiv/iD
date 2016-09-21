@@ -58,15 +58,10 @@ iD.ui = function(context) {
 
         var simulate_button = limiter.append('button')
             .attr('class', 'simulate')
-            .html("<span class='icon icon-pre-text save'></span><span class='label'>Save</span><small id='as-username'></small>")
-            .attr('title', 'Save changes to OpenStreetMap, making them visible to other users')
-            .call(bootstrap.tooltip()
-                .placement('bottom'))
+            .html("<span class='icon'></span><span class='label'>Simulate</span>")
+            .attr('title', 'Start the simularion')
             .on('click', function() {
             });
-
-        simulate_button.append('span')
-             .attr('class', 'count');
 
         bar.append('div')
             .attr('class', 'full-screen')
