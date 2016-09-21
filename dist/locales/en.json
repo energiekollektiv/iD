@@ -669,7 +669,7 @@
         },
         "presets": {
             "area": {
-                "name": "Hub",
+                "name": "Hub Area",
                 "terms": ""
             },
             "line": {
@@ -681,7 +681,7 @@
                 "terms": ""
             },
             "relation": {
-                "name": "Hub Assignment",
+                "name": "Hub Relation",
                 "terms": ""
             },
             "type/combined_flexible_generator": {

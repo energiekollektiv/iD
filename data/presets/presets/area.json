@@ -1,9 +1,9 @@
 {
-    "name": "Hub",
+    "name": "Hub Area",
     "tags": {
-        "area": "yes"
+        "area": "yes",
+        "type": "hub_area"
     },
     "fields": ["energy_sector"],
-    "geometry": ["area"],
-    "matchScore": 0.1
+    "geometry": ["area"]
 }

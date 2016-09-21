@@ -1,7 +1,8 @@
 {
-    "name": "Hub Assignment", 
+    "name": "Hub Relation", 
     "icon":"relation",
+    "fields": ["energy_sector"],
     "tags": {
-        "type":"hub_assignment"},
+        "type": "hub_relation"},
     "geometry": ["relation"]
 }
