@@ -1,82 +1,13 @@
 {
-    "building": {
-        "key": "building",
-        "type": "combo",
-        "label": "Building"
-    },
-    "building_area": {
-        "key": "building",
-        "type": "combo",
-        "default": "yes",
-        "geometry": "area",
-        "label": "Building"
-    },
-    "capacity": {
-        "key": "capacity",
+    "energy_amount": {
+        "key": "energy_amount",
         "type": "number",
-        "label": "Capacity",
-        "placeholder": "50, 100, 200..."
-    },
-    "electrified": {
-        "key": "electrified",
-        "type": "combo",
-        "label": "Electrification",
-        "placeholder": "Contact Line, Electrified Rail...",
-        "strings": {
-            "options": {
-                "contact_line": "Contact Line",
-                "rail": "Electrified Rail",
-                "yes": "Yes (unspecified)",
-                "no": "No"
-            }
-        }
-    },
-    "fuel": {
-        "key": "fuel",
-        "type": "combo",
-        "label": "Fuel"
-    },
-    "generator/method": {
-        "key": "generator:method",
-        "type": "combo",
-        "label": "Method"
-    },
-    "generator/source": {
-        "key": "generator:source",
-        "type": "combo",
-        "label": "Source"
-    },
-    "generator/type": {
-        "key": "generator:type",
-        "type": "combo",
-        "label": "Type"
+        "label": "Energy Amount"
     },
     "heat_demand": {
         "key": "heat_demand",
         "type": "number",
         "label": "Heat demand (GWh)"
-    },
-    "layer": {
-        "key": "layer",
-        "type": "combo",
-        "label": "Layer"
-    },
-    "length": {
-        "key": "length",
-        "type": "number",
-        "label": "Length (Meters)"
-    },
-    "level": {
-        "key": "level",
-        "type": "combo",
-        "label": "Level",
-        "universal": true
-    },
-    "levels": {
-        "key": "building:levels",
-        "type": "number",
-        "label": "Levels",
-        "placeholder": "2, 4, 6..."
     },
     "location": {
         "key": "location",
@@ -89,55 +20,6 @@
         "label": "Name",
         "placeholder": "Common name (if any)"
     },
-    "network": {
-        "key": "network",
-        "type": "text",
-        "label": "Network"
-    },
-    "oneway": {
-        "key": "oneway",
-        "type": "check",
-        "label": "One Way",
-        "strings": {
-            "options": {
-                "undefined": "Assumed to be No",
-                "yes": "Yes",
-                "no": "No"
-            }
-        }
-    },
-    "oneway_yes": {
-        "key": "oneway",
-        "type": "check",
-        "label": "One Way",
-        "strings": {
-            "options": {
-                "undefined": "Assumed to be Yes",
-                "yes": "Yes",
-                "no": "No"
-            }
-        }
-    },
-    "operator": {
-        "key": "operator",
-        "type": "text",
-        "label": "Operator"
-    },
-    "place": {
-        "key": "place",
-        "type": "typeCombo",
-        "label": "Type"
-    },
-    "power": {
-        "key": "power",
-        "type": "typeCombo",
-        "label": "Type"
-    },
-    "power_supply": {
-        "key": "power_supply",
-        "type": "check",
-        "label": "Power Supply"
-    },
     "relation": {
         "key": "type",
         "type": "combo",
@@ -146,37 +28,5 @@
             "Plant",
             "Scenario"
         ]
-    },
-    "route": {
-        "key": "route",
-        "type": "combo",
-        "label": "Type"
-    },
-    "route_master": {
-        "key": "route_master",
-        "type": "combo",
-        "label": "Type"
-    },
-    "site": {
-        "key": "site",
-        "type": "combo",
-        "label": "Type"
-    },
-    "source": {
-        "key": "source",
-        "type": "text",
-        "icon": "source",
-        "universal": true,
-        "label": "Source"
-    },
-    "substation": {
-        "key": "substation",
-        "type": "typeCombo",
-        "label": "Type"
-    },
-    "towertype": {
-        "key": "tower:type",
-        "type": "combo",
-        "label": "Tower type"
     }
 }
