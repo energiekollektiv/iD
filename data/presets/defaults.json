@@ -3,22 +3,20 @@
         "area"
     ],
     "line": [
-        "line",
-		"type/transmission"
+		"line"
     ],
     "point": [
-        "point",
+		"point",
 		"type/demand",
 	    "type/volatile_generator",
-		"type/flexible_generator",
+		"type/combined_flexible_generator",
 		"type/storage"
     ],
     "vertex": [
         "vertex"
     ],
     "relation": [
-        "relation",
-		"type/scenario",
-		"type/hub_connection"
+		"relation",
+		"type/scenario"
     ]
 }

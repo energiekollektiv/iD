@@ -1,4 +1,9 @@
 {
+    "efficiency": {
+        "key": "efficiency",
+        "type": "number",
+        "label": "Efficiency"
+    },
     "energy_amount": {
         "key": "energy_amount",
         "type": "number",
@@ -11,7 +16,8 @@
         "strings": {
             "options": {
                 "heat": "Heat",
-                "electricity": "Electricity"
+                "electricity": "Electricity",
+                "powerheat": "Power and Heat"
             }
         }
     },
@@ -41,13 +47,9 @@
         "label": "Name",
         "placeholder": "Common name (if any)"
     },
-    "relation": {
+    "scenario_year": {
         "key": "type",
-        "type": "combo",
-        "label": "Type",
-        "options": [
-            "Plant",
-            "Scenario"
-        ]
+        "type": "number",
+        "label": "Type"
     }
 }

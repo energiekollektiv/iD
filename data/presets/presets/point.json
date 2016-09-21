@@ -1,6 +1,13 @@
 {
-    "name": "Plant",
-    "tags": {},
+    "name": "Flexible Generator",
+    "tags": {
+		"type": "LinearTransformer"},
     "geometry": ["point"],
-    "matchScore": 0.1
+    "matchScore": 0.1,
+	"fields": [
+		"energy_sector",
+	    "installed_power",
+		"efficiency"
+    ]
 }
+

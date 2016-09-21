@@ -4,6 +4,9 @@ en:
       category-energy:
         name: Heat Category
     fields:
+      efficiency:
+        # 'efficiency=*'
+        label: Efficiency
       energy_amount:
         # 'energy_amount=*'
         label: Energy Amount
@@ -15,6 +18,8 @@ en:
           electricity: Electricity
           # energy_sector=heat
           heat: Heat
+          # energy_sector=powerheat
+          powerheat: Power and Heat
       heat_demand:
         # 'heat_demand=*'
         label: Heat demand (GWh)
@@ -32,7 +37,7 @@ en:
         label: Name
         # name field placeholder
         placeholder: Common name (if any)
-      relation:
+      scenario_year:
         # 'type=*'
         label: Type
     presets:
@@ -41,26 +46,32 @@ en:
         name: Hub
         terms: "<translate with synonyms or related terms for 'Hub', separated by commas>"
       line:
+        # 'line=yes, type=LinearTransformer'
         name: Transmission
         terms: "<translate with synonyms or related terms for 'Transmission', separated by commas>"
       point:
-        name: Plant
-        terms: "<translate with synonyms or related terms for 'Plant', separated by commas>"
+        # type=LinearTransformer
+        name: Flexible Generator
+        terms: "<translate with synonyms or related terms for 'Flexible Generator', separated by commas>"
       relation:
-        name: Relation
-        terms: "<translate with synonyms or related terms for 'Relation', separated by commas>"
+        name: Hub Assignment
+        terms: "<translate with synonyms or related terms for 'Hub Assignment', separated by commas>"
+      type/combined_flexible_generator:
+        # type=LinearTransformer
+        name: Combined Flexible Generator
+        terms: "<translate with synonyms or related terms for 'Combined Flexible Generator', separated by commas>"
       type/demand:
-        # type=demand
+        # type=Sink
         name: Demand
         terms: "<translate with synonyms or related terms for 'Demand', separated by commas>"
       type/flexible_generator:
-        # type=flexible_generator
+        # type=LinearTransformer
         name: Flexible Generator
         terms: "<translate with synonyms or related terms for 'Flexible Generator', separated by commas>"
-      type/hub_connection:
-        # type=hub_connections
-        name: Hub Connection
-        terms: "<translate with synonyms or related terms for 'Hub Connection', separated by commas>"
+      type/hub_assignment:
+        # type=hub_assignment
+        name: Hub Assignment
+        terms: "<translate with synonyms or related terms for 'Hub Assignment', separated by commas>"
       type/scenario:
         # type=scenario
         name: Scenario
@@ -70,7 +81,7 @@ en:
         name: Storage
         terms: "<translate with synonyms or related terms for 'Storage', separated by commas>"
       type/volatile_generator:
-        # type=volatile_generator
+        # type=source
         name: Volatile Generator
         terms: "<translate with synonyms or related terms for 'Volatile Generator', separated by commas>"
       vertex:

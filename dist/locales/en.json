@@ -609,6 +609,9 @@
             }
         },
         "fields": {
+            "efficiency": {
+                "label": "Efficiency"
+            },
             "energy_amount": {
                 "label": "Energy Amount"
             },
@@ -616,7 +619,8 @@
                 "label": "Energy Sector",
                 "options": {
                     "heat": "Heat",
-                    "electricity": "Electricity"
+                    "electricity": "Electricity",
+                    "powerheat": "Power and Heat"
                 }
             },
             "heat_demand": {
@@ -635,7 +639,7 @@
                 "label": "Name",
                 "placeholder": "Common name (if any)"
             },
-            "relation": {
+            "scenario_year": {
                 "label": "Type"
             }
         },
@@ -649,11 +653,15 @@
                 "terms": ""
             },
             "point": {
-                "name": "Plant",
+                "name": "Flexible Generator",
                 "terms": ""
             },
             "relation": {
-                "name": "Relation",
+                "name": "Hub Assignment",
+                "terms": ""
+            },
+            "type/combined_flexible_generator": {
+                "name": "Combined Flexible Generator",
                 "terms": ""
             },
             "type/demand": {
@@ -664,8 +672,8 @@
                 "name": "Flexible Generator",
                 "terms": ""
             },
-            "type/hub_connection": {
-                "name": "Hub Connection",
+            "type/hub_assignment": {
+                "name": "Hub Assignment",
                 "terms": ""
             },
             "type/scenario": {

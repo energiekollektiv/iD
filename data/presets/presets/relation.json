@@ -1,9 +1,6 @@
 {
-    "name": "Relation",
-    "icon": "relation",
+    "name": "Hub Assignment", 
+    "icon":"relation",
     "tags": {},
-    "geometry": ["relation"],
-    "fields": [
-        "relation"
-    ]
+    "geometry": ["relation"]
 }

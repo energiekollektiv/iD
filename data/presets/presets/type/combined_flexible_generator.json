@@ -5,7 +5,7 @@
     "tags": {
         "type": "LinearTransformer"
     },
-    "name": "Flexible Generator",
+    "name": "Combined Flexible Generator",
 	"fields": [
 		"energy_sector",
 	    "installed_power",

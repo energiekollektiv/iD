@@ -5,7 +5,8 @@
 	  "strings": {
         "options": {
             "heat": "Heat",
-            "electricity": "Electricity"
+            "electricity": "Electricity",
+			"powerheat": "Power and Heat"
         }
     }
 }

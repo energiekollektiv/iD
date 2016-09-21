@@ -3,7 +3,7 @@
         "point"
     ],
     "tags": {
-        "type": "volatile_generator"
+        "type": "source"
     },
     "name": "Volatile Generator",
 	"fields": [

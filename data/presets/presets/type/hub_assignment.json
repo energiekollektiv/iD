@@ -3,8 +3,8 @@
         "relation"
     ],
     "tags": {
-        "type": "hub_connections"
+        "type": "hub_assignment"
     },
-    "name": "Hub Connection",
+    "name": "Hub Assignment",
     "icon": "marker"
 }

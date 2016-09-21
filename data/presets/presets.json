@@ -14,33 +14,54 @@
     },
     "line": {
         "name": "Transmission",
-        "tags": {},
+        "tags": {
+            "line": "yes",
+            "type": "LinearTransformer"
+        },
         "geometry": [
             "line"
         ],
+        "matchScore": 0.1,
         "fields": [
             "energy_sector",
             "installed_power"
-        ],
-        "matchScore": 0.1
+        ]
     },
     "point": {
-        "name": "Plant",
-        "tags": {},
+        "name": "Flexible Generator",
+        "tags": {
+            "type": "LinearTransformer"
+        },
         "geometry": [
             "point"
         ],
-        "matchScore": 0.1
+        "matchScore": 0.1,
+        "fields": [
+            "energy_sector",
+            "installed_power",
+            "efficiency"
+        ]
     },
     "relation": {
-        "name": "Relation",
+        "name": "Hub Assignment",
         "icon": "relation",
         "tags": {},
         "geometry": [
             "relation"
+        ]
+    },
+    "type/combined_flexible_generator": {
+        "geometry": [
+            "point"
         ],
+        "tags": {
+            "type": "LinearTransformer"
+        },
+        "name": "Combined Flexible Generator",
         "fields": [
-            "relation"
+            "energy_sector",
+            "installed_power",
+            "efficiency"
         ]
     },
     "type/demand": {
@@ -49,7 +70,7 @@
             "point"
         ],
         "tags": {
-            "type": "demand"
+            "type": "Sink"
         },
         "name": "Demand",
         "fields": [
@@ -62,25 +83,27 @@
             "point"
         ],
         "tags": {
-            "type": "flexible_generator"
+            "type": "LinearTransformer"
         },
         "name": "Flexible Generator",
         "fields": [
             "energy_sector",
-            "installed_power"
+            "installed_power",
+            "efficiency"
         ]
     },
-    "type/hub_connection": {
+    "type/hub_assignment": {
         "geometry": [
             "relation"
         ],
         "tags": {
-            "type": "hub_connections"
+            "type": "hub_assignment"
         },
-        "name": "Hub Connection",
+        "name": "Hub Assignment",
         "icon": "marker"
     },
     "type/scenario": {
+        "icon": "relation",
         "geometry": [
             "relation"
         ],
@@ -88,7 +111,9 @@
             "type": "scenario"
         },
         "name": "Scenario",
-        "icon": "marker"
+        "fields": [
+            "scenario_year"
+        ]
     },
     "type/storage": {
         "geometry": [
@@ -109,7 +134,7 @@
             "point"
         ],
         "tags": {
-            "type": "volatile_generator"
+            "type": "source"
         },
         "name": "Volatile Generator",
         "fields": [

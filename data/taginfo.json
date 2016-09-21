@@ -18,15 +18,27 @@
         },
         {
             "key": "type",
-            "value": "demand"
+            "value": "LinearTransformer"
         },
         {
             "key": "type",
-            "value": "flexible_generator"
+            "value": "LinearTransformer"
         },
         {
             "key": "type",
-            "value": "hub_connections"
+            "value": "LinearTransformer"
+        },
+        {
+            "key": "type",
+            "value": "Sink"
+        },
+        {
+            "key": "type",
+            "value": "LinearTransformer"
+        },
+        {
+            "key": "type",
+            "value": "hub_assignment"
         },
         {
             "key": "type",
@@ -38,7 +50,7 @@
         },
         {
             "key": "type",
-            "value": "volatile_generator"
+            "value": "source"
         }
     ]
 }

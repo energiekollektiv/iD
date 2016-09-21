@@ -3,7 +3,7 @@
         "point"
     ],
     "tags": {
-        "type": "demand"
+        "type": "Sink"
     },
     "name": "Demand",
 	"fields": [

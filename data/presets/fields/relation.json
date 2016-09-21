@@ -1,6 +1,0 @@
-{
-    "key": "type",
-    "type": "combo",
-    "label": "Type",
-    "options": ["Plant", "Scenario"]
-}
