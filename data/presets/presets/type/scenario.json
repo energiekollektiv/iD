@@ -6,6 +6,6 @@
         "type": "scenario"
     },
     "name": "Scenario",
-	"fields":["scenario_year"]
+	"fields":["scenario_year", "scenario_description"]
     
 }

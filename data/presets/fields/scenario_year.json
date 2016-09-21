@@ -1,5 +1,5 @@
 {
-    "key": "type",
+    "key": "year",
     "type": "number",
-    "label": "Type"
+    "label": "Year"
 }

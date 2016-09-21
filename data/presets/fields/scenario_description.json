@@ -1,0 +1,5 @@
+{
+    "key": "scenario_description",
+    "type": "textarea",
+    "label": "Scenario Description"
+}
