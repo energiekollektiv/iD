@@ -39,7 +39,7 @@ module.exports = function(o) {
             url = o.url + '/oauth/request_token',
             timer;
 
-        params.oauth_callback = 'http://127.0.0.1:8000/land.html'
+        params.oauth_callback = '/static/iD/land.html'
 
         params.oauth_signature = ohauth.signature(
             o.oauth_secret, '',
