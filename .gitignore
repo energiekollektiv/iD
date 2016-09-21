@@ -6,3 +6,10 @@ dist/*.js
 dist/*.css
 dist/img/*.svg
 data/data.js
+data/feature-icons.json
+data/presets.yaml
+data/presets/categories.json
+data/presets/fields.json
+data/presets/presets.json
+data/taginfo.json
+
