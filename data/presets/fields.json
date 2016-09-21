@@ -4,6 +4,11 @@
         "type": "number",
         "label": "Efficiency"
     },
+    "electrical_efficiency": {
+        "key": "electrical_efficiency",
+        "type": "number",
+        "label": "Electrical Efficiency"
+    },
     "energy_amount": {
         "key": "energy_amount",
         "type": "number",
@@ -67,6 +72,11 @@
         "key": "type",
         "type": "number",
         "label": "Type"
+    },
+    "thermal_efficiency": {
+        "key": "thermal_efficiency",
+        "type": "number",
+        "label": "Thermal Efficiency"
     },
     "variable_costs": {
         "key": "variable_costs",

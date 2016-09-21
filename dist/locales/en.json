@@ -612,6 +612,9 @@
             "efficiency": {
                 "label": "Efficiency"
             },
+            "electrical_efficiency": {
+                "label": "Electrical Efficiency"
+            },
             "energy_amount": {
                 "label": "Energy Amount"
             },
@@ -653,6 +656,9 @@
             },
             "scenario_year": {
                 "label": "Type"
+            },
+            "thermal_efficiency": {
+                "label": "Thermal Efficiency"
             },
             "variable_costs": {
                 "label": "Variable Costs"

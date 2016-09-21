@@ -7,6 +7,9 @@ en:
       efficiency:
         # 'efficiency=*'
         label: Efficiency
+      electrical_efficiency:
+        # 'electrical_efficiency=*'
+        label: Electrical Efficiency
       energy_amount:
         # 'energy_amount=*'
         label: Energy Amount
@@ -58,6 +61,9 @@ en:
       scenario_year:
         # 'type=*'
         label: Type
+      thermal_efficiency:
+        # 'thermal_efficiency=*'
+        label: Thermal Efficiency
       variable_costs:
         # 'variable_costs=*'
         label: Variable Costs

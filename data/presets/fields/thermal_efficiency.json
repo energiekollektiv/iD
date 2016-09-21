@@ -1,0 +1,5 @@
+{
+    "key": "thermal_efficiency",
+    "type": "number",
+    "label": "Thermal Efficiency"
+}
