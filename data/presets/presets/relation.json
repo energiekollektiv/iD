@@ -1,6 +1,7 @@
 {
     "name": "Hub Assignment", 
     "icon":"relation",
-    "tags": {},
+    "tags": {
+        "type":"hub_assignment"},
     "geometry": ["relation"]
 }
