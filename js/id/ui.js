@@ -62,7 +62,7 @@ iD.ui = function(context) {
             .on('click', function() {
               var ids = id.selectedIDs();
               if ( ids.length != 1 ||
-                   id.entity(ids[0]).tags.type != "Scenario") {
+                   id.entity(ids[0]).tags.type != "scenario") {
                 alert("Please select exactly one scenario.");
                 return;
               };
