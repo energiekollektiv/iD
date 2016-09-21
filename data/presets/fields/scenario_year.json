@@ -1,5 +1,5 @@
 {
-    "key": "year",
+    "key": "scenario_year",
     "type": "number",
-    "label": "Year"
+    "label": "Scenario Year"
 }
