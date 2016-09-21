@@ -3,7 +3,8 @@
         "point"
     ],
     "tags": {
-        "type": "LinearTransformer"
+        "type": "flexible_generator",
+		"oemof_class":"linear_transformer"
     },
     "name": "Flexible Generator",
 	"fields": [

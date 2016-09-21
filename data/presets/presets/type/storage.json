@@ -3,7 +3,8 @@
         "point"
     ],
     "tags": {
-        "type": "storage"
+        "type": "storage",
+		"oemof_class":"storage"
     },
     "name": "Storage",
 	"fields": [

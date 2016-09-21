@@ -3,7 +3,8 @@
         "point"
     ],
     "tags": {
-        "type": "LinearTransformer"
+		"type":"combined_flexible_generator",
+        "oemof_class": "linear_transformer"
     },
     "name": "Combined Flexible Generator",
 	"fields": [

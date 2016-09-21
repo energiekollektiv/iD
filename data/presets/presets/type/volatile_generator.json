@@ -3,12 +3,13 @@
         "point"
     ],
     "tags": {
-        "type": "source"
+        "type": "volatile_generator",
+		"oemof_class":"source"
     },
     "name": "Volatile Generator",
 	"fields": [
 		"energy_sector",
 	    "installed_power",
-		"variable_costs"
+		"variable_costs",
     ]
 }
