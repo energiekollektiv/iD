@@ -484,6 +484,22 @@ button.save.has-count .count::before {
     border-right:  6px solid rgba(255,255,255,.5);
 }
 
+.simulate-button {
+    text-align: center;
+    line-height: 20px;
+    border: 0;
+    background: yellow;
+    font-weight: bold;
+    color: #333;
+    font-size: 12px;
+    display: inline-block;
+    border-radius: 4px;
+    height: 40px;
+    float: right;
+    margin-right: 20px;
+    padding: 0px 20px;
+}
+
 /* Icons */
 
 .icon {
@@ -526,7 +542,6 @@ button.save.has-count .count::before {
     width: auto;
     border-radius: 3px;
 }
-
 
 /* ToolBar / Persistent UI Elements
 ------------------------------------------------------- */
