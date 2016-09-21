@@ -604,58 +604,16 @@
     },
     "presets": {
         "categories": {
-            "category-route": {
-                "name": "Route Features"
+            "category-energy": {
+                "name": "Heat Category"
             }
         },
         "fields": {
-            "building": {
-                "label": "Building"
-            },
-            "building_area": {
-                "label": "Building"
-            },
-            "capacity": {
-                "label": "Capacity",
-                "placeholder": "50, 100, 200..."
-            },
-            "electrified": {
-                "label": "Electrification",
-                "placeholder": "Contact Line, Electrified Rail...",
-                "options": {
-                    "contact_line": "Contact Line",
-                    "rail": "Electrified Rail",
-                    "yes": "Yes (unspecified)",
-                    "no": "No"
-                }
-            },
-            "fuel": {
-                "label": "Fuel"
-            },
-            "generator/method": {
-                "label": "Method"
-            },
-            "generator/source": {
-                "label": "Source"
-            },
-            "generator/type": {
-                "label": "Type"
+            "energy_amount": {
+                "label": "Energy Amount"
             },
             "heat_demand": {
                 "label": "Heat demand (GWh)"
-            },
-            "layer": {
-                "label": "Layer"
-            },
-            "length": {
-                "label": "Length (Meters)"
-            },
-            "level": {
-                "label": "Level"
-            },
-            "levels": {
-                "label": "Levels",
-                "placeholder": "2, 4, 6..."
             },
             "location": {
                 "label": "Location"
@@ -664,57 +622,8 @@
                 "label": "Name",
                 "placeholder": "Common name (if any)"
             },
-            "network": {
-                "label": "Network"
-            },
-            "oneway": {
-                "label": "One Way",
-                "options": {
-                    "undefined": "Assumed to be No",
-                    "yes": "Yes",
-                    "no": "No"
-                }
-            },
-            "oneway_yes": {
-                "label": "One Way",
-                "options": {
-                    "undefined": "Assumed to be Yes",
-                    "yes": "Yes",
-                    "no": "No"
-                }
-            },
-            "operator": {
-                "label": "Operator"
-            },
-            "place": {
-                "label": "Type"
-            },
-            "power": {
-                "label": "Type"
-            },
-            "power_supply": {
-                "label": "Power Supply"
-            },
             "relation": {
                 "label": "Type"
-            },
-            "route": {
-                "label": "Type"
-            },
-            "route_master": {
-                "label": "Type"
-            },
-            "site": {
-                "label": "Type"
-            },
-            "source": {
-                "label": "Source"
-            },
-            "substation": {
-                "label": "Type"
-            },
-            "towertype": {
-                "label": "Tower type"
             }
         },
         "presets": {
@@ -730,64 +639,28 @@
                 "name": "Plant",
                 "terms": ""
             },
-            "power": {
-                "name": "Power",
-                "terms": ""
-            },
-            "power/generator": {
-                "name": "Power Generator",
-                "terms": ""
-            },
-            "power/line": {
-                "name": "Power Line",
-                "terms": ""
-            },
-            "power/minor_line": {
-                "name": "Minor Power Line",
-                "terms": ""
-            },
-            "power/pole": {
-                "name": "Power Pole",
-                "terms": ""
-            },
-            "power/sub_station": {
-                "name": "Substation",
-                "terms": ""
-            },
-            "power/substation": {
-                "name": "Substation",
-                "terms": ""
-            },
-            "power/tower": {
-                "name": "High-Voltage Tower",
-                "terms": ""
-            },
-            "power/transformer": {
-                "name": "Transformer",
-                "terms": ""
-            },
             "relation": {
                 "name": "Relation",
                 "terms": ""
             },
-            "type/route": {
-                "name": "Route",
+            "type/demand": {
+                "name": "Demand",
                 "terms": ""
             },
-            "type/route/power": {
-                "name": "Power Route",
-                "terms": ""
-            },
-            "type/route_master": {
-                "name": "Route Master",
+            "type/flexible_generator": {
+                "name": "Flexible Generator",
                 "terms": ""
             },
             "type/scenario": {
                 "name": "Scenario",
                 "terms": ""
             },
-            "type/site": {
-                "name": "Site",
+            "type/storage": {
+                "name": "Storage",
+                "terms": ""
+            },
+            "type/volatile_generator": {
+                "name": "Volatile Generator",
                 "terms": ""
             },
             "vertex": {

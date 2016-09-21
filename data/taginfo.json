@@ -17,51 +17,12 @@
             "value": "yes"
         },
         {
-            "key": "power"
-        },
-        {
-            "key": "power",
-            "value": "generator"
-        },
-        {
-            "key": "power",
-            "value": "line"
-        },
-        {
-            "key": "power",
-            "value": "minor_line"
-        },
-        {
-            "key": "power",
-            "value": "pole"
-        },
-        {
-            "key": "power",
-            "value": "sub_station"
-        },
-        {
-            "key": "power",
-            "value": "substation"
-        },
-        {
-            "key": "power",
-            "value": "tower"
-        },
-        {
-            "key": "power",
-            "value": "transformer"
+            "key": "type",
+            "value": "demand"
         },
         {
             "key": "type",
-            "value": "route"
-        },
-        {
-            "key": "route",
-            "value": "power"
-        },
-        {
-            "key": "type",
-            "value": "route_master"
+            "value": "flexible_generator"
         },
         {
             "key": "type",
@@ -69,7 +30,11 @@
         },
         {
             "key": "type",
-            "value": "site"
+            "value": "storage"
+        },
+        {
+            "key": "type",
+            "value": "volatile_generator"
         }
     ]
 }
