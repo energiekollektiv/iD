@@ -36,6 +36,8 @@ iD.ui.FeatureList = function(context) {
         var listWrap = selection.append('div')
             .attr('class', 'inspector-body');
 
+        openmod.sh.widgets.scenarios(listWrap, context);
+
         var list = listWrap.append('div')
             .attr('class', 'feature-list cf');
 
