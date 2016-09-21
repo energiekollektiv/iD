@@ -18,7 +18,12 @@ module.exports = function(o) {
     // authenticated users will also have a request token secret, but it's
     // not used in transactions with the server
     oauth.authenticated = function() {
-        return !!(token('oauth_token') && token('oauth_token_secret'));
+        //return !!(token('oauth_token') && token('oauth_token_secret'));
+        // Screw this. Let's just pretend we're always authenticated.
+        // OAuth doesn't really by us anything and what we should really do is
+        // protect iD's homepage and the API calls via a required login
+        // session.
+        return true
     };
 
     oauth.logout = function() {
