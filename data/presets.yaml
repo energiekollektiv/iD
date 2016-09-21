@@ -35,7 +35,7 @@ en:
           # fuel_type=lignite
           lignite: Lignite
           # fuel_type=oil
-          oil: oil
+          oil: Oil
           # fuel_type=waste
           waste: Waste
       heat_demand:

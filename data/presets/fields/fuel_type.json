@@ -1,0 +1,16 @@
+{
+    "key": "fuel_type",
+    "type": "combo",
+    "label": "Fuel Type",
+  	"strings": {
+        "options": {
+            "heat": "Heat",
+            "gas": "Gas",
+			"oil": "Oil",
+			"coal":"Coal",
+			"lignite":"Lignite",
+			"waste":"Waste",
+			"biomass":"Biomass"
+        }
+    }
+}
