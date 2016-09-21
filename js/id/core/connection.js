@@ -12,8 +12,12 @@ iD.Connection = function(useHttps) {
         tileZoom = 16,
         oauth = osmAuth({
             url: '/iD/connection',
-            oauth_consumer_key: '5A043yRSEugj4DJ5TljuapfnrflWDte8jTOcWLlT',
-            oauth_secret: 'aB3jKq1TRsCOUrfOIZ6oQMEDmv2ptV76PA54NGLL',
+            // At this point we don't really care about OAuth. That's why the
+            // key/secret is set to something silly to make sure it's set to
+            // something more secret and unguessable once we start caring about
+            // OAuth again.
+            oauth_consumer_key: 'NotReallyAKey',
+            oauth_secret: 'NotReallyASecret',
             loading: authenticating,
             done: authenticated
         }),
