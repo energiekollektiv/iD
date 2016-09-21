@@ -1,0 +1,5 @@
+{
+    "key": "installed_power",
+    "type": "number",
+    "label": "Installed Power"
+}

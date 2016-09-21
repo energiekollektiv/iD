@@ -1,0 +1,11 @@
+{
+    "key": "energy_sector",
+    "type": "combo",
+    "label": "Energy Sector",
+	  "strings": {
+        "options": {
+            "heat": "Heat",
+            "electricity": "Electricity"
+        }
+    }
+}

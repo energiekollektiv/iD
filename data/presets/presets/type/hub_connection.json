@@ -1,0 +1,10 @@
+{
+    "geometry": [
+        "relation"
+    ],
+    "tags": {
+        "type": "hub_connections"
+    },
+    "name": "Hub Connection",
+    "icon": "marker"
+}
