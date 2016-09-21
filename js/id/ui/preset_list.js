@@ -98,6 +98,9 @@ iD.ui.PresetList = function(context) {
         var list = listWrap.append('div')
             .attr('class', 'preset-list fillL cf')
             .call(drawList, context.presets().defaults(geometry, 36));
+
+        openmod.sh.widgets.scenarios(listWrap, context);
+
     }
 
     function drawList(list, presets) {
