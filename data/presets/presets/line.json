@@ -1,10 +1,11 @@
 {
     "name": "Transmission",
-    "tags": {"line":"yes", 
-			 "type":"LinearTransformer"},
+    "tags": {"line": "yes",
+             "type": "transmission",
+             "oemof_class": "linear_transformer"},
     "geometry": ["line"],
-    "matchScore": 0.1,
-	"fields": [
-		"energy_sector",
-	    "installed_power"]
+    "fields": [
+        "energy_sector",
+        "installed_power",
+        "efficiency"]
 }
