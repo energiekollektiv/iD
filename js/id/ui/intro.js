@@ -92,7 +92,7 @@ iD.ui.intro = function(context) {
             else curtain.reveal(box, '', '', options.duration);
         }
 
-        var steps = ['navigation', 'point', 'area', 'line', 'startEditing'].map(function(step, i) {
+        var steps = ['navigation', 'startEditing'].map(function(step, i) {
             var s = iD.ui.intro[step](context, reveal)
                 .on('done', function() {
                     entered.filter(function(d) {

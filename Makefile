@@ -240,10 +240,7 @@ dist/iD.js: \
 	js/id/ui/preset/restrictions.js \
 	js/id/ui/preset/textarea.js \
 	js/id/ui/preset/wikipedia.js \
-	js/id/ui/intro/area.js \
-	js/id/ui/intro/line.js \
 	js/id/ui/intro/navigation.js \
-	js/id/ui/intro/point.js \
 	js/id/ui/intro/start_editing.js \
 	js/id/presets.js \
 	js/id/presets/category.js \
