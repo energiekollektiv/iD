@@ -4,6 +4,7 @@ iD.presets.Category = function(id, category, all) {
     category.id = id;
 
     category.members = iD.presets.Collection(category.members.map(function(id) {
+        console.log("ya");
         return all.item(id);
     }));
 
