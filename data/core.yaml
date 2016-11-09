@@ -195,8 +195,8 @@ en:
     title: Save Changes
     description_placeholder: Brief description of your contributions
     message_label: Changeset comment
-    upload_explanation: "The changes you upload will be visible on all maps that use OpenStreetMap data."
-    upload_explanation_with_user: "The changes you upload as {user} will be visible on all maps that use OpenStreetMap data."
+    upload_explanation: "The changes you upload will be written to the database."
+    upload_explanation_with_user: "The changes you upload as {user} will be written to the database."
     save: Save
     cancel: Cancel
     changes: "{count} Changes"
