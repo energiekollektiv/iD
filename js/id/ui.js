@@ -144,7 +144,7 @@ iD.ui = function(context) {
             .append('a')
             .attr('target', '_blank')
             .attr('tabindex', -1)
-            .attr('href', 'https://github.com/openmodsh')
+            .attr('href', 'https://github.com/energiekollektiv/openmod.sh-id')
             .text(iD.version);
 
         var issueLinks = aboutList.append('li');
@@ -152,7 +152,7 @@ iD.ui = function(context) {
         issueLinks.append('a')
             .attr('target', '_blank')
             .attr('tabindex', -1)
-            .attr('href', 'https://github.com/openmodsh/issues')
+            .attr('href', 'https://github.com/energiekollektiv/openmod.sh-id/issues')
             .call(iD.svg.Icon('#icon-bug', 'light'))
             .call(bootstrap.tooltip()
                 .title(t('report_a_bug'))
