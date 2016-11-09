@@ -10,7 +10,6 @@ iD.ui.PresetList = function(context) {
             presets = context.presets().matchGeometry(geometry);
 
         scenarioViewer
-            .state(state)
             .entityID(id);
 
         selection.html('');

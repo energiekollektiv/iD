@@ -88,7 +88,8 @@ iD.ui.ScenarioViewer = function(context) {
                                     return ;
                                 };
                                 try {
-                                    context.enter(iD.modes.Select(context, ["r" + e.title]))
+                                    context.enter(iD.modes.Select(context, ["r" + e.title]));
+                                    window.location.reload(true);
                                 }
                                 catch(err) {
                                     window.location.reload(true);
