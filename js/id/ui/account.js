@@ -42,12 +42,8 @@ iD.ui.Account = function(context) {
 
             logoutLink.append('a')
                 .attr('class', 'logout')
-                .attr('href', '#')
-                .text(t('logout'))
-                .on('click.logout', function() {
-                    d3.event.preventDefault();
-                    connection.logout();
-                });
+                .attr('href', '/logout')
+                .text(t('logout'));
         });
     }
 
