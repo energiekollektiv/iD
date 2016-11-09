@@ -6,6 +6,7 @@
         "type": "scenario"
     },
     "name": "Scenario",
-	"fields":["scenario_year", "scenario_description"]
+	"fields":["scenario_year", "scenario_description",
+		  "start_timestep", "end_timestep"]
     
 }
