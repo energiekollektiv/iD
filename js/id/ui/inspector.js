@@ -1,6 +1,7 @@
 iD.ui.Inspector = function(context) {
     var presetList = iD.ui.PresetList(context),
         entityEditor = iD.ui.EntityEditor(context),
+        scenarioViewer = iD.ui.ScenarioViewer(context),
         state = 'select',
         entityID,
         newFeature = false;
@@ -16,6 +17,10 @@ iD.ui.Inspector = function(context) {
             .entityID(entityID)
             .on('choose', showList);
 
+        scenarioViewer
+            .state(state)
+            .entityID(entityID);    
+
         var $wrap = selection.selectAll('.panewrap')
             .data([0]);
 
@@ -27,6 +32,7 @@ iD.ui.Inspector = function(context) {
 
         $enter.append('div')
             .attr('class', 'entity-editor-pane pane');
+
 
         var $presetPane = $wrap.select('.preset-list-pane');
         var $editorPane = $wrap.select('.entity-editor-pane');
@@ -40,6 +46,8 @@ iD.ui.Inspector = function(context) {
         if (showEditor) {
             $wrap.style('right', '0%');
             $editorPane.call(entityEditor);
+            $editorPane.call(scenarioViewer);
+
         } else {
             $wrap.style('right', '-100%');
             $presetPane.call(presetList);

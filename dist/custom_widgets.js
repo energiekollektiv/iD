@@ -45,7 +45,7 @@
 
 })();
 */
-
+/*
 (function () {
 var widgets = {};
 var openmod = window.openmod || {};
@@ -75,6 +75,7 @@ widgets.scenarios = function (parent, context) {
 
   d3.xhr('/scenario')
     .on('load', function(xhr) {
+
       if (xhr.response === '') {
         input.attr('placeholder', 'Select a scenario');
       } else {
@@ -110,3 +111,4 @@ widgets.scenarios = function (parent, context) {
 
 window.openmod = openmod;
 })();
+*/

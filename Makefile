@@ -216,6 +216,7 @@ dist/iD.js: \
 	js/id/ui/restore.js \
 	js/id/ui/save.js \
 	js/id/ui/scale.js \
+	js/id/ui/scenario.js \
 	js/id/ui/selection_list.js \
 	js/id/ui/sidebar.js \
 	js/id/ui/source_switch.js \
@@ -270,7 +271,7 @@ dist/iD.min.js: dist/iD.js Makefile
 	node_modules/.bin/uglifyjs $< -c -m -o $@
 
 dist/iD.css: css/*.css
-	cat css/reset.css css/map.css css/app.css > $@
+	cat css/reset.css css/map.css css/app.css css/custom.css > $@
 
 node_modules/.install: package.json
 	npm install

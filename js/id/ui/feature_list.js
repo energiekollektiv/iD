@@ -1,5 +1,9 @@
 iD.ui.FeatureList = function(context) {
-    var geocodeResults;
+    var event = d3.dispatch('choose'),
+        id,
+        currentPreset,
+        geocodeResults,
+        scenarioViewer = iD.ui.ScenarioViewer(context);
 
     function featureList(selection) {
         var header = selection.append('div')
@@ -36,7 +40,7 @@ iD.ui.FeatureList = function(context) {
         var listWrap = selection.append('div')
             .attr('class', 'inspector-body');
 
-        openmod.sh.widgets.scenarios(listWrap, context);
+        scenarioViewer.initScenarioSelection(listWrap);
 
         var list = listWrap.append('div')
             .attr('class', 'feature-list cf');
@@ -254,5 +258,25 @@ iD.ui.FeatureList = function(context) {
         }
     }
 
-    return featureList;
+
+    featureList.state = function(_) {
+        if (!arguments.length) return state;
+        state = _;
+        entityEditor.state(state);
+        return featureList;
+    };
+
+    featureList.entityID = function(_) {
+        if (!arguments.length) return entityID;
+        entityID = _;
+        return featureList;
+    };
+
+    featureList.newFeature = function(_) {
+        if (!arguments.length) return newFeature;
+        newFeature = _;
+        return featureList;
+    };
+
+    return d3.rebind(featureList, event, 'on');
 };
