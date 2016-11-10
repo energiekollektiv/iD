@@ -32,7 +32,8 @@ iD.ui.ScenarioViewer = function(context) {
                         entity.tags.name + "' scenario.",
                         "key-1=value-1&key-2=value-2");
                     if (parameters != null) {
-                        d3.xhr("/simulate?scenario=" + entity + "&" + parameters)
+                        d3.xhr("/simulate?scenario=" + entity.id + "&" +
+                               parameters)
                             .on("load", function(xhr){
                             window.open("/simulation/" + xhr.response)
                         })
