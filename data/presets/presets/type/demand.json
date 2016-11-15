@@ -1,4 +1,5 @@
-{  "icon": "city-24",
+{  
+    "icon": "plug",
     "geometry": [
         "point"
     ],

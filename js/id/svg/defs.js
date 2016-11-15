@@ -100,6 +100,46 @@ iD.svg.Defs = function(context) {
                 return d;
             });
 
+        // Load energy icons from icons8
+        var icons8 = [
+            'battery',
+            'battery-1',
+            'coal',
+            'electricity',
+            'electric-tower',
+            'energy',
+            'fan',
+            'gasoline',
+            'gasoline-pump',
+            'light-bulb',
+            'light-bulb-1',
+            'light-bulb-2',
+            'nuclear',
+            'nuclear-1',
+            'nuclear-plant',
+            'nuclear-plant-1',
+            'petrol',
+            'petrol-1',
+            'plug',
+            'power',
+            'power-1',
+            'power-2',
+            'power-plant',
+            'renwable-energy',
+            'socket',
+            'socket-1',
+            'solar-panel',
+            'sun',
+            'water',
+            'wind-mill'
+        ]
+        for (var i = 0; i < icons8.length; i++) {
+            defs.call(SVGSpriteDefinition(
+                icons8[i],
+                context.imagePath('icons8/' + icons8[i] + '.svg')));
+        }
+
+
         defs.call(SVGSpriteDefinition(
             'iD-sprite',
             context.imagePath('iD-sprite.svg')));
@@ -107,5 +147,6 @@ iD.svg.Defs = function(context) {
         defs.call(SVGSpriteDefinition(
             'maki-sprite',
             context.imagePath('maki-sprite.svg')));
+
     };
 };

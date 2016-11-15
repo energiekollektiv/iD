@@ -1,4 +1,5 @@
 {
+    "icon": "power",
     "name": "Flexible Generator",
     "tags": {
         "type": "flexible_generator",

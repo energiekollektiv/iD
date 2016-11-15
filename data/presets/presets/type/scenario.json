@@ -1,4 +1,5 @@
-{   "icon": "relation",
+{   
+	"icon": "relation",
     "geometry": [
         "relation"
     ],
@@ -6,7 +7,8 @@
         "type": "scenario"
     },
     "name": "Scenario",
-	"fields":["scenario_year", "scenario_description",
-		  "scenario_start_timestep", "scenario_end_timestep"]
-    
+	"fields": [
+		"scenario_year",
+		"scenario_description"
+	]
 }
