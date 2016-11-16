@@ -67,7 +67,6 @@ iD.ui.ScenarioViewer = function(context) {
                         .attr('href', '#')
                         .text(e.value)
                         .on('click', function() {
-                            console.log("click");
                             context.enter(iD.modes.Select(context, ["r" + e.title]))
                         });
                 };
@@ -76,7 +75,6 @@ iD.ui.ScenarioViewer = function(context) {
 
         d3.xhr('/scenarios')
             .on('load', function(xhr){
-                console.log(xhr.response);
                 var data = JSON.parse(xhr.response);
                 input.call(d3.combobox()
                     .data(data)
