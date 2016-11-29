@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
 <head>
-	<meta charset="UTF-8">
+	<meta charset='UTF-8'>
 	<title>Timeseries Visualisation</title>
 </head>
 <body>
 	<script src='http://d3js.org/d3.v3.js'></script>
 
-	<script src="d3_timeseries.js"></script>
+	<script src='d3_timeseries.js'></script>
 	<script>
 		(function() {
 			ts = new timeseries();
@@ -16,16 +16,24 @@
 			if(query.id != null) {
 			    d3.xhr('/' + query.id.substring(0,1) + '/' + query.id.substring(1,query.id.length) + '/JSON')
 				.on('load', function(xhr) {
-					console.log(xhr);
         			if(isJson(xhr.response)) {
-							var data = JSON.parse(xhr.response);
-							if(data.timeseries.load_profile!=null)
+						var data = JSON.parse(xhr.response);
+						console.log(data);
+						console.log(query.view);
+						if(query.view == 'load_profile') {
+							if(data.timeseries.load_profile != null) {
 								ts.viewTimeseries(data.timeseries.load_profile);
-							else
+							}
+							else {
 								alert('Keine Timeseries Daten');
+							}
+						}
+						else if (query.view == 'variable_costs') {
+							ts.viewTimeseries(data.timeseries.variable_costs);
+						}
 			    	}
 	           		 else {
-	              		alert("Fehlerhafte Daten");
+	              		alert('Fehlerhafte Daten');
 	            	}
         		})
         		.on('error', function(xhr) {

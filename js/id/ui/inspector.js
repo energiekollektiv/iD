@@ -104,7 +104,7 @@ iD.ui.Inspector = function(context) {
                 var $test = $header.data([0]).enter().append('a')
                     .attr('id', 'timeseriesLink')
                     .attr('target', 'blank')
-                    .attr('href', 'timeseries/gettimeseries.html?id=' + entity.id)
+                    .attr('href', 'timeseries/gettimeseries.html?id=' + entity.id + "&view=" + links[i])
                     .html(links[i]);
             }
         }
