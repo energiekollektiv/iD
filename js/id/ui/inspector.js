@@ -6,6 +6,7 @@ iD.ui.Inspector = function(context) {
         entityID,
         newFeature = false;
 
+
     function inspector(selection) {
         presetList
             .entityID(entityID)
@@ -37,11 +38,19 @@ iD.ui.Inspector = function(context) {
         var $presetPane = $wrap.select('.preset-list-pane');
         var $editorPane = $wrap.select('.entity-editor-pane');
 
+        /*var timeseriesLink = d3.select('.entity-editor-pane .inspector-body')
+                            .append('a')
+                            .html('timeseriesLink');*/
+
         var graph = context.graph(),
             entity = context.entity(entityID),
             showEditor = state === 'hover' ||
                 entity.isUsed(graph) ||
                 entity.isHighwayIntersection(graph);
+
+        console.log(entity.id);
+
+        console.log(entity);
 
         if (showEditor) {
             $wrap.style('right', '0%');
@@ -78,6 +87,26 @@ iD.ui.Inspector = function(context) {
 
             $editorPane.call(entityEditor
                 .preset(preset));
+        }
+
+        var test = d3.select('.entity-editor-pane .inspector-body');
+        var $header = test.selectAll('#timeseriesLink')
+            .data([]);
+
+        $header.exit().remove();
+        
+        // Enter
+        if(entity.tags.timeseries != null) {
+            var links = entity.tags.timeseries.split(',');
+            for (var i = links.length - 1; i >= 0; i--) {
+                links[i] = links[i].trim();
+
+                var $test = $header.data([0]).enter().append('a')
+                    .attr('id', 'timeseriesLink')
+                    .attr('target', 'blank')
+                    .attr('href', 'timeseries/gettimeseries.html?id=' + entity.id)
+                    .html(links[i]);
+            }
         }
     }
 

@@ -12,7 +12,7 @@ iD.ui.ScenarioViewer = function(context) {
         var entity = context.entity(id),
             tags = _.clone(entity.tags);
 
-        selection.selectAll(".simulateContainer").remove();
+        selection.selectAll('.simulateContainer').remove();
 
         var body = selection.selectAll('.inspector-body')
             .data([0]);
@@ -21,23 +21,23 @@ iD.ui.ScenarioViewer = function(context) {
             var outer = prepend('div', body)
                 .attr('class', 'inspector-inner simulateContainer')
 
-
             outer.insert('button', ':first-child')
                 .attr('class', 'simulateButton')
                 .html('Simulate')
                 .on('click', function() {
                     var pane = d3.select('div.entity-editor-pane');
                     var parameters = prompt(
-                        "Specify arguments with which to run the '" +
-                        entity.tags.name + "' scenario.",
-                        "key-1=value-1&key-2=value-2");
+                        'Specify arguments with which to run the "' +
+                        entity.tags.name + '" scenario.',
+                        'key-1=value-1&key-2=value-2');
                     if (parameters != null) {
-                        d3.xhr("/simulate?scenario=" + entity.id + "&" +
+                        console.log(entity);
+                        d3.xhr('/simulate?scenario=' + entity.id + '&' +
                                parameters)
-                            .on("load", function(xhr){
-                            window.open("/simulation/" + xhr.response)
+                            .on('load', function(xhr){
+                            window.open('/simulation/' + xhr.response)
                         })
-                        .send("PUT");
+                        .send('PUT');
                     };
                 });
         }
@@ -67,7 +67,7 @@ iD.ui.ScenarioViewer = function(context) {
                         .attr('href', '#')
                         .text(e.value)
                         .on('click', function() {
-                            context.enter(iD.modes.Select(context, ["r" + e.title]))
+                            context.enter(iD.modes.Select(context, ['r' + e.title]))
                         });
                 };
             })
@@ -87,7 +87,7 @@ iD.ui.ScenarioViewer = function(context) {
                                     return ;
                                 };
                                 try {
-                                    context.enter(iD.modes.Select(context, ["r" + e.title]));
+                                    context.enter(iD.modes.Select(context, ['r' + e.title]));
                                     window.location.reload(true);
                                 }
                                 catch(err) {
@@ -95,7 +95,7 @@ iD.ui.ScenarioViewer = function(context) {
                                 }
                             })
                             .send('PUT')}));
-                        input.attr("defaultValue", data[0]);
+                        input.attr('defaultValue', data[0]);
             })
             .send('GET');
 

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Timeseries Visualisation</title>
+</head>
+<body>
+	<script src='http://d3js.org/d3.v3.js'></script>
+
+	<script src="d3_timeseries.js"></script>
+	<script>
+		(function() {
+			ts = new timeseries();
+
+			var query = getQueryParams(document.location.search);
+			if(query.id != null) {
+			    d3.xhr('/' + query.id.substring(0,1) + '/' + query.id.substring(1,query.id.length) + '/JSON')
+				.on('load', function(xhr) {
+					console.log(xhr);
+        			if(isJson(xhr.response)) {
+							var data = JSON.parse(xhr.response);
+							if(data.timeseries.load_profile!=null)
+								ts.viewTimeseries(data.timeseries.load_profile);
+							else
+								alert('Keine Timeseries Daten');
+			    	}
+	           		 else {
+	              		alert("Fehlerhafte Daten");
+	            	}
+        		})
+        		.on('error', function(xhr) {
+        			if(xhr.status != 200) {
+        				console.log(xhr);
+        			}
+        		})
+				.send('GET');
+			}
+
+			function getQueryParams(qs) {
+			    qs = qs.split('+').join(' ');
+
+			    var params = {},
+			        tokens,
+			        re = /[?&]?([^=]+)=([^&]*)/g;
+
+			    while (tokens = re.exec(qs)) {
+			        params[decodeURIComponent(tokens[1])] = decodeURIComponent(tokens[2]);
+			    }
+
+			    return params;
+			}
+	})()
+	</script>
+</body>
+</html>
