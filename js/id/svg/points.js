@@ -49,7 +49,6 @@ iD.svg.Points = function(projection, context) {
         groups.select('.icon')
             .attr('xlink:href', function(entity) {
                 var preset = context.presets().match(entity, graph);
-                console.log(preset);
                 return '#' + preset.icon;//preset.icon ? '#' + preset.icon + '-12' : '';
             });
 
