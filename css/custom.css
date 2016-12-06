@@ -1,0 +1,32 @@
+.simulateContainer {
+	padding-top: 10px;
+    padding-bottom: 5px;
+}
+.simulateButton{
+    width: 40%;
+    background: rgba(0,0,0,.5);
+    border-radius: 4px;
+    margin-top: 10px;
+    color: #fff;
+}
+.simulateButton:hover {
+    background: rgba(0,0,0,.8);
+}
+
+.lightbox {
+	position: absolute;
+	top: 250px;
+	right: 50px;
+	z-index: 2000;
+	background: black;
+	min-height: 300px;
+	width: 300px;
+	padding: 10px 15px;
+	color: white;
+}
+.lightboxHeader {
+	text-align: right;
+}
+.lightboxContent {
+	
+}
