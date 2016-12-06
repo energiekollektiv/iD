@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	body {
+		margin: 0;
+	    padding: 0;
+	    height: 2000px;
+	    overflow: hidden;
+	    width: 100%;
+	}
+	.lightbox {
+		position: absolute;
+		top: 250px;
+		left: 50px;
+		z-index: 2000;
+		background: #a0a0a0;
+		min-height: 300px;
+		
+		color: white;
+		border: solid 1px #000;
+	}
+	.lightboxHeader {
+		text-align: right;
+		height:35px;
+		background: black;
+		color: #fff;
+	}
+	.lightboxContent {
+		padding: 10px 15px;
+	}
+	</style>
+</head>
+<body>
+	<a href="javascript:createLightbox()">Lightbox hinzufügen</a>
+	<script src='http://d3js.org/d3.v3.js'></script>
+	<script src="lightbox.js"></script>
+	<script type="text/javascript">
+		new Lightbox('<svg width="400" height="400" style="display:block;"><g class="axis abscissa" transform="translate(0, 350)"><g class="tick" transform="translate(95,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text dy=".71em" y="9" x="0" style="text-anchor: middle;">0.5</text></g><g class="tick" transform="translate(182,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text dy=".71em" y="9" x="0" style="text-anchor: middle;">0.3</text></g><g class="tick" transform="translate(269,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text dy=".71em" y="9" x="0" style="text-anchor: middle;">0.1</text></g><g class="tick" transform="translate(356,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text dy=".71em" y="9" x="0" style="text-anchor: middle;">0.6</text></g><path class="domain" d="M50,6V0H400V6"></path></g><g class="axis ordinate" transform="translate(50, 0)"><g class="tick" transform="translate(0,350)" style="opacity: 1;"><line x2="-6" y2="0"></line><text dy=".32em" x="-9" y="0" style="text-anchor: end;">0.00</text></g><g class="tick" transform="translate(0,321.66666666666663)" style="opacity: 1;"><line x2="-6" y2="0"></line><text dy=".32em" x="-9" y="0" style="text-anchor: end;">0.05</text></g><g class="tick" transform="translate(0,293.3333333333333)" style="opacity: 1;"><line x2="-6" y2="0"></line><text dy=".32em" x="-9" y="0" style="text-anchor: end;">0.10</text></g><g class="tick" transform="translate(0,265)" style="opacity: 1;"><line x2="-6" y2="0"></line><text dy=".32em" x="-9" y="0" style="text-anchor: end;">0.15</text></g><g class="tick" transform="translate(0,236.66666666666666)" style="opacity: 1;"><line x2="-6" y2="0"></line><text dy=".32em" x="-9" y="0" style="text-anchor: end;">0.20</text></g><g class="tick" transform="translate(0,208.3333333333333)" style="opacity: 1;"><line x2="-6" y2="0"></line><text dy=".32em" x="-9" y="0" style="text-anchor: end;">0.25</text></g><g class="tick" transform="translate(0,180)" style="opacity: 1;"><line x2="-6" y2="0"></line><text dy=".32em" x="-9" y="0" style="text-anchor: end;">0.30</text></g><g class="tick" transform="translate(0,151.66666666666666)" style="opacity: 1;"><line x2="-6" y2="0"></line><text dy=".32em" x="-9" y="0" style="text-anchor: end;">0.35</text></g><g class="tick" transform="translate(0,123.33333333333331)" style="opacity: 1;"><line x2="-6" y2="0"></line><text dy=".32em" x="-9" y="0" style="text-anchor: end;">0.40</text></g><g class="tick" transform="translate(0,95)" style="opacity: 1;"><line x2="-6" y2="0"></line><text dy=".32em" x="-9" y="0" style="text-anchor: end;">0.45</text></g><g class="tick" transform="translate(0,66.66666666666666)" style="opacity: 1;"><line x2="-6" y2="0"></line><text dy=".32em" x="-9" y="0" style="text-anchor: end;">0.50</text></g><g class="tick" transform="translate(0,38.33333333333331)" style="opacity: 1;"><line x2="-6" y2="0"></line><text dy=".32em" x="-9" y="0" style="text-anchor: end;">0.55</text></g><path class="domain" d="M-6,10H0V350H-6"></path></g><rect x="60" y="66.66666666666666" height="283.33333333333337" width="70" style="stroke: rgb(173, 173, 173); stroke-width: 2px;"></rect><rect x="147" y="180" height="170" width="70" style="stroke: rgb(173, 173, 173); stroke-width: 2px;"></rect><rect x="234" y="293.3333333333333" height="56.666666666666686" width="70" style="stroke: rgb(173, 173, 173); stroke-width: 2px;"></rect><rect x="321" y="10" height="340" width="70" style="stroke: rgb(173, 173, 173); stroke-width: 2px;"></rect></svg>');
+
+	function createLightbox() {
+		new Lightbox("New Lightbox");
+	}
+	</script>
+</body>
+</html>
