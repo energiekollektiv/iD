@@ -95,17 +95,44 @@ iD.ui.Inspector = function(context) {
 
         $header.exit().remove();
         
+
         // Enter
         if(entity.tags.timeseries != null) {
             var links = entity.tags.timeseries.split(',');
             for (var i = links.length - 1; i >= 0; i--) {
-                links[i] = links[i].trim();
+                var name = links[i].trim();
 
                 var $test = $header.data([0]).enter().append('a')
                     .attr('id', 'timeseriesLink')
                     .attr('target', 'blank')
-                    .attr('href', 'timeseries/gettimeseries.html?id=' + entity.id + "&view=" + links[i])
-                    .html(links[i]);
+                    .on('click', function() {
+                        d3.xhr('/' + entity.id.substring(0,1) + '/' + entity.id.substring(1, entity.id.length) + '/JSON' , function(error, xhr) {
+                            if(isJson(xhr.response)) {
+                                var data = JSON.parse(xhr.response);
+                                if(name == 'load_profile') {
+                                    if(data.timeseries.load_profile != null) {
+                                        var content = getTimeseries(data.timeseries.load_profile);
+                                        new Lightbox(content);
+                                    }
+                                    else {
+                                        console.log('No data found');
+                                    }
+                                }
+                                else if (name == 'variable_costs') {
+                                    if(data.timeseries.load_profile != null) {
+                                        new Lightbox(getTimeseries(data.timeseries.variable_costs));
+                                    }
+                                    else {
+                                        console.log('No data found');
+                                    }
+                                }
+                                else {
+                                    console.log('View unknown');
+                                }
+                            }
+                        });
+                    })
+                    .html(name);
             }
         }
     }

@@ -13,9 +13,6 @@ iD.ui.EntityEditor = function(context) {
     var rawTagEditor = iD.ui.RawTagEditor(context)
         .on('change', changeTags);
 
-    var timeseriesLink;
-
-
 
     function entityEditor(selection) {
         var entity = context.entity(id),
@@ -229,10 +226,6 @@ iD.ui.EntityEditor = function(context) {
         base = context.graph();
         entityEditor.preset(context.presets().match(context.entity(id), base));
         entityEditor.modified(false);
-
-        //var own_id = context.entity(id).id.substring(1, context.entity(id).id.length);
-        //d3.select('#timeseriesLink')
-         //   .attr('href', 'timeseries/gettimeseries.html?id=' + own_id );
 
         coalesceChanges = false;
         return entityEditor;

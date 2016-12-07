@@ -226,6 +226,7 @@ dist/iD.js: \
 	js/id/ui/status.js \
 	js/id/ui/success.js \
 	js/id/ui/tag_reference.js \
+	js/id/ui/timeseries.js \
 	js/id/ui/toggle.js \
 	js/id/ui/undo_redo.js \
 	js/id/ui/view_on_osm.js \
