@@ -24,7 +24,7 @@ iD.ui.Splash = function(context) {
             .html(t('splash.text', {
                 version: iD.version,
                 website: '<a href="http://openmod.net/sh/">openmod.net/sh</a>',
-                github: '<a href="https://github.com/openmodsh">github.com</a>'
+                github: '<a href="https://github.com/energiekollektiv">github.com</a>'
             }));
 
         var buttons = introModal.append('div').attr('class', 'modal-actions cf');

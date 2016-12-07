@@ -1,5 +1,6 @@
 iD.ui.PresetList = function(context) {
     var event = d3.dispatch('choose'),
+        scenarioViewer = iD.ui.ScenarioViewer(context),
         id,
         currentPreset,
         autofocus = false;
@@ -7,6 +8,9 @@ iD.ui.PresetList = function(context) {
     function presetList(selection) {
         var geometry = context.geometry(id),
             presets = context.presets().matchGeometry(geometry);
+
+        scenarioViewer
+            .entityID(id);
 
         selection.html('');
 
@@ -99,8 +103,7 @@ iD.ui.PresetList = function(context) {
             .attr('class', 'preset-list fillL cf')
             .call(drawList, context.presets().defaults(geometry, 36));
 
-        openmod.sh.widgets.scenarios(listWrap, context);
-
+        scenarioViewer.initScenarioSelection(listWrap);
     }
 
     function drawList(list, presets) {

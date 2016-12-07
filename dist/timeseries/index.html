@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Timeseries Visualisation</title>
+</head>
+<body>
+	<input type="number" placeholder="ID" id="id" value="3"></input>
+	<input type="submit" id="submit"></input>
+	<script src='http://d3js.org/d3.v3.js'></script>
+
+	<script src="d3_timeseries.js"></script>
+	<script>
+		(function init() {
+			ts = new timeseries();
+
+			d3.select('#submit')
+				.on('click', function(){
+					var id = d3.select('#id').property('value');
+
+					d3.xhr('/element/' + id + '/JSON')
+						.on('load', function(xhr) {
+	            			if(isJson(xhr.response)) {
+	  							var data = JSON.parse(xhr.response);
+	  							if(data.timeseries.load_profile!=null)
+	  								ts.viewTimeseries(data.timeseries.load_profile);
+	  							else
+	  								alert('Keine Timeseries Daten');
+					    	}
+			           		 else {
+			              		alert("Fehlerhafte Daten");
+			            	}
+		        		})
+					.send('GET');
+				})
+		})()
+	</script>
+</body>
+</html>

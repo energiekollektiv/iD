@@ -13,9 +13,14 @@ iD.ui.EntityEditor = function(context) {
     var rawTagEditor = iD.ui.RawTagEditor(context)
         .on('change', changeTags);
 
+    var timeseriesLink;
+
+
+
     function entityEditor(selection) {
         var entity = context.entity(id),
             tags = _.clone(entity.tags);
+
 
         var $header = selection.selectAll('.header')
             .data([0]);
@@ -47,9 +52,14 @@ iD.ui.EntityEditor = function(context) {
         var $body = selection.selectAll('.inspector-body')
             .data([0]);
 
+
+
+
         // Enter
         $enter = $body.enter().append('div')
             .attr('class', 'inspector-body');
+
+        
 
         $enter.append('div')
             .attr('class', 'preset-list-item inspector-inner')
@@ -123,7 +133,7 @@ iD.ui.EntityEditor = function(context) {
             .call(iD.ui.RawMembershipEditor(context)
                 .entityID(id));
 
-        function historyChanged() {
+        function historyChanged() { 
             if (state === 'hide') return;
 
             var entity = context.hasEntity(id),
@@ -140,7 +150,6 @@ iD.ui.EntityEditor = function(context) {
     }
 
     function clean(o) {
-
         function cleanVal(k, v) {
             function keepSpaces(k) {
                 var whitelist = ['opening_hours', 'service_times', 'collection_times',
@@ -214,10 +223,17 @@ iD.ui.EntityEditor = function(context) {
 
     entityEditor.entityID = function(_) {
         if (!arguments.length) return id;
+        
+
         id = _;
         base = context.graph();
         entityEditor.preset(context.presets().match(context.entity(id), base));
         entityEditor.modified(false);
+
+        //var own_id = context.entity(id).id.substring(1, context.entity(id).id.length);
+        //d3.select('#timeseriesLink')
+         //   .attr('href', 'timeseries/gettimeseries.html?id=' + own_id );
+
         coalesceChanges = false;
         return entityEditor;
     };
@@ -226,6 +242,7 @@ iD.ui.EntityEditor = function(context) {
         if (!arguments.length) return preset;
         if (_ !== preset) {
             preset = _;
+
             reference = iD.ui.TagReference(preset.reference(context.geometry(id)), context)
                 .showing(false);
         }

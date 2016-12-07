@@ -12,7 +12,6 @@
 .simulateButton:hover {
     background: rgba(0,0,0,.8);
 }
-
 .lightbox {
 	position: absolute;
 	top: 250px;
@@ -30,7 +29,6 @@
 .lightboxContent {
 	
 }
-
 .redFill {
 	stroke: rgba(255, 0, 0, 0.3)!important;
     fill: rgba(255, 0, 0, 0.3)!important;

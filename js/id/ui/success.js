@@ -32,6 +32,7 @@ iD.ui.Success = function(context) {
             .append('span')
             .text(t('success.help_link_text'));
 
+/*
         var changesetURL = context.connection().changesetURL(changeset.id);
 
         body.append('a')
@@ -57,6 +58,7 @@ iD.ui.Success = function(context) {
                 .title(function(d) { return t('success.' + d.key); })
                 .placement('bottom'))
             .each(function(d) { d3.select(this).call(iD.svg.Icon('#logo-' + d.key, 'social')); });
+*/
     }
 
     success.changeset = function(_) {
