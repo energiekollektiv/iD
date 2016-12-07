@@ -7,7 +7,10 @@ function Lightbox(Content) {
  	var that = this;
  	this.animationId;
  	this.currentEvent;
- 	this.startEvent;
+ 	this.startOffset = {
+ 		x: 0,
+ 		y: 0
+ 	};
 
 
  	this.container = d3.select('body')
@@ -17,10 +20,13 @@ function Lightbox(Content) {
 	this.container.append('div')
 		.attr('class', 'lightboxHeader')
 		.on('mousedown', function () {
-			d3.event.preventDefault();		
+			d3.event.preventDefault();
+
 			if(d3.event.target == that.container.select(".lightboxHeader")[0][0]) {
 				that.currentEvent = null;
-				that.startEvent = d3.event;
+				that.startOffset.x = d3.event.offsetX;
+				that.startOffset.y = d3.event.offsetY;
+
 				// Add Animation Loop and Move Listener
 				that.animationId = requestAnimationFrame(that.dragLightbox);
 				d3.select(document)
@@ -46,7 +52,6 @@ function Lightbox(Content) {
 			.attr('class', 'lightboxContent');
 
 	//contentContainer.append(Content);
-	Content.attr('width', '401')
 	contentContainer.node().appendChild(Content.node());
 
 	this.close = function() {
@@ -55,9 +60,9 @@ function Lightbox(Content) {
 
 	this.dragLightbox = function () {
 		console.log("draw");
-		if(that.currentEvent != null && that.startEvent != null) {
-			var x = (that.currentEvent.clientX - that.startEvent.offsetX);
-			var y = (that.currentEvent.clientY - that.startEvent.offsetY);
+		if(that.currentEvent != null) {
+			var x = (that.currentEvent.clientX - that.startOffset.x);
+			var y = (that.currentEvent.clientY - that.startOffset.y);
 			that.container.style("left", x + "px");
 			that.container.style("top", y + "px");
 			that.currentEvent = null;
@@ -82,6 +87,5 @@ function Lightbox(Content) {
 
 		cancelAnimationFrame(that.animationId);
 		that.animationId = null;
-		that.startEvent = null;
 	}
 };
