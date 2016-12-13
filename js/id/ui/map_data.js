@@ -3,7 +3,7 @@ iD.ui.MapData = function(context) {
         features = context.features().keys(),
         layers = context.layers(),
         fills = ['wireframe', 'partial', 'full'],
-        fillDefault = context.storage('area-fill') || 'partial',
+        fillDefault = context.storage('area-fill') || 'full',
         fillSelected = fillDefault;
 
 
@@ -27,6 +27,8 @@ iD.ui.MapData = function(context) {
         }
 
         function setFill(d) {
+            console.log(d);
+            console.log(_);
             _.each(fills, function(opt) {
                 context.surface().classed('fill-' + opt, Boolean(opt === d));
             });
