@@ -256,9 +256,6 @@ iD.ui.MapData = function(context) {
 
 
         function update() {
-            dataLayerContainer.call(drawMapillaryItems);
-            dataLayerContainer.call(drawGpxItem);
-
             fillList.call(drawList, fills, 'radio', 'area_fill', setFill, showsFill);
 
             featureList.call(drawList, features, 'checkbox', 'feature', clickFeature, showsFeature);
@@ -328,25 +325,6 @@ iD.ui.MapData = function(context) {
 
         content.append('h4')
             .text(t('map_data.title'));
-
-
-        // data layers
-        content.append('a')
-            .text(t('map_data.data_layers'))
-            .attr('href', '#')
-            .classed('hide-toggle', true)
-            .classed('expanded', true)
-            .on('click', function() {
-                var exp = d3.select(this).classed('expanded');
-                dataLayerContainer.style('display', exp ? 'none' : 'block');
-                d3.select(this).classed('expanded', !exp);
-                d3.event.preventDefault();
-            });
-
-        var dataLayerContainer = content.append('div')
-            .attr('class', 'data-data-layers')
-            .style('display', 'block');
-
 
         // area fills
         content.append('a')
