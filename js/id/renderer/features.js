@@ -42,6 +42,10 @@ iD.Features = function(context) {
         'obliterated': true
     };
 
+    var connectionTypes = {
+        "transmission": true
+    };
+
     var dispatch = d3.dispatch('change', 'redraw'),
         _cullFactor = 1,
         _cache = {},
@@ -71,8 +75,23 @@ iD.Features = function(context) {
         };
     }
 
+    /*function defineAdditionalFeature(k, filter) {
+        _keysAdd.push(k);
+        _features[k] = {
+            filter: filter,
+            enabled: true,
+            count: 0,
+            currentMax: Infinity,
+            defaultMax: Infinity,
+            enable: function() { this.enabled = true; this.currentMax = this.defaultMax; },
+            disable: function() { this.enabled = false; this.currentMax = 0; },
+            hidden: function() { return !context.editable() || this.count > this.currentMax * _cullFactor; },
+            autoHidden: function() { return this.hidden() && this.currentMax > 0; }
+        };
+    }*/
 
-    defineFeature('points', function isPoint(entity, resolver, geometry) {
+
+    /* defineFeature('points', function isPoint(entity, resolver, geometry) {
         return geometry === 'point';
     }, 200);
 
@@ -108,6 +127,12 @@ iD.Features = function(context) {
 
     defineFeature('boundaries', function isBoundary(entity) {
         return !!entity.tags.boundary;
+    });
+
+    defineFeature('region', function isRegion(entity) {
+        return (
+            !!entity.tags.type === 'hub_area'
+        );
     });
 
     defineFeature('water', function isWater(entity) {
@@ -153,11 +178,40 @@ iD.Features = function(context) {
             if (past_futures[s] || past_futures[entity.tags[s]]) { return true; }
         }
         return false;
-    });
+    }); */
 
     // Lines or areas that don't match another feature filter.
     // IMPORTANT: The 'others' feature must be the last one defined,
     //   so that code in getMatches can skip this test if `hasMatch = true`
+
+    defineFeature('plant', function isPlant(entity, resolver, geometry) {
+        if (entity.id.substring(0,1) == 'n') {
+            return true;   
+        }
+        else {
+            return false;
+        }
+    });
+
+    defineFeature('connection', function isConnection(entity, resolver, geometry) {
+        if (connectionTypes[entity.tags.type]) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    });
+
+    defineFeature('region', function isRegion(entity, resolver, geometry) {
+        if (entity.tags.area == 'yes') {
+            return true;  
+        }
+        else {
+            return false;
+        }
+    });
+
+    
     defineFeature('others', function isOther(entity, resolver, geometry) {
         return (geometry === 'line' || geometry === 'area');
     });
@@ -322,7 +376,6 @@ iD.Features = function(context) {
             }
             _cache[ent].matches = matches;
         }
-
         return _cache[ent].matches;
     };
 

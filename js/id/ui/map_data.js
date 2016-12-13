@@ -27,8 +27,6 @@ iD.ui.MapData = function(context) {
         }
 
         function setFill(d) {
-            console.log(d);
-            console.log(_);
             _.each(fills, function(opt) {
                 context.surface().classed('fill-' + opt, Boolean(opt === d));
             });
@@ -212,6 +210,8 @@ iD.ui.MapData = function(context) {
             var items = selection.selectAll('li')
                 .data(data);
 
+            console.log(data);
+
             // Enter
             var enter = items.enter()
                 .append('li')
@@ -370,6 +370,30 @@ iD.ui.MapData = function(context) {
 
         context.features()
             .on('change.map_data-update', update);
+
+
+        // Energy Sector
+        /*content.append('a')
+            .text(t('map_data.energy_sector'))
+            .attr('href', '#')
+            .classed('hide-toggle', true)
+            .classed('expanded', false)
+            .on('click', function() {
+                var exp = d3.select(this).classed('expanded');
+                energySectorContainer.style('display', exp ? 'none' : 'block');
+                d3.select(this).classed('expanded', !exp);
+                d3.event.preventDefault();
+            });
+
+        var energySectorContainer = content.append('div')
+            .attr('class', 'data-feature-filters')
+            .style('display', 'none');
+
+        var featureList = energySectorContainer.append('ul')
+            .attr('class', 'layer-list layer-feature-list');
+        */
+
+
 
         setFill(fillDefault);
 

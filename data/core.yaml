@@ -286,41 +286,18 @@ en:
     data_layers: Data Layers
     fill_area: Fill Areas
     map_features: Map Features
+    energy_sector: Energy Sector
     autohidden: "These features have been automatically hidden because too many would be shown on the screen.  You can zoom in to edit them."
   feature:
-    points:
-      description: Points
-      tooltip: "Points of Interest"
-    traffic_roads:
-      description: Traffic Roads
-      tooltip: "Highways, Streets, etc."
-    service_roads:
-      description: Service Roads
-      tooltip: "Service Roads, Parking Aisles, Tracks, etc."
-    paths:
-      description: Paths
-      tooltip: "Sidewalks, Foot Paths, Cycle Paths, etc."
-    buildings:
-      description: Buildings
-      tooltip: "Buildings, Shelters, Garages, etc."
-    landuse:
-      description: Landuse Features
-      tooltip: "Forests, Farmland, Parks, Residential, Commercial, etc."
-    boundaries:
-      description: Boundaries
-      tooltip: "Administrative Boundaries"
-    water:
-      description: Water Features
-      tooltip: "Rivers, Lakes, Ponds, Basins, etc."
-    rail:
-      description: Rail Features
-      tooltip: "Railways"
-    power:
-      description: Power Features
-      tooltip: "Power Lines, Power Plants, Substations, etc."
-    past_future:
-      description: Past/Future
-      tooltip: "Proposed, Construction, Abandoned, Demolished, etc."
+    plant: 
+      description: Plant
+      tooltip: "All single points"
+    connection: 
+      description: Connection
+      tooltip: "All connections"
+    region: 
+      description: Region
+      tooltip: "All regions"
     others:
       description: Others
       tooltip: "Everything Else"
