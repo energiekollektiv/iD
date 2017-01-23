@@ -42,11 +42,12 @@ function Lightbox(Content) {
 					})
 			}
 		})
-		.append('a')
+		.append('button')
+			.attr('class', 'fr preset-close')
 			.on('click', function(e) {
 				that.close(e);
 			})
-			.html('x');
+			.call(iD.svg.Icon('#icon-close'));
 
 	var contentContainer = this.container.append('div')
 			.attr('class', 'lightboxContent');
@@ -65,6 +66,7 @@ function Lightbox(Content) {
 			var y = (that.currentEvent.clientY - that.startOffset.y);
 			that.container.style("left", x + "px");
 			that.container.style("top", y + "px");
+			that.container.style("bottom", "initial");
 			that.currentEvent = null;
 		}
 		that.animationId = requestAnimationFrame(that.dragLightbox);
