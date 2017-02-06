@@ -4,13 +4,18 @@ iD.ui.ScenarioViewer = function(context) {
         base,
         id,
         preset,
-        reference;
+        reference,
+        selectedScenario;
 
-
-
+    /**
+    * Add Simulate Button
+    */
     function scenarioViewer(selection) {
         var entity = context.entity(id),
             tags = _.clone(entity.tags);
+
+        console.log("scenarioViewerscenarioViewer");
+        console.log(context);
 
         selection.selectAll('.simulateContainer').remove();
 
@@ -43,6 +48,9 @@ iD.ui.ScenarioViewer = function(context) {
         }
     }
 
+    /** 
+    * Init Selectbox 
+    */
     scenarioViewer.initScenarioSelection = function(parent) {
         var outer = prepend('div', parent)
             .attr('class', 'foobar inspector-inner fillL cf')
@@ -61,6 +69,8 @@ iD.ui.ScenarioViewer = function(context) {
                 } else {
                     var e = JSON.parse(xhr.response);
                     prepend('span', outer).text('Selected scenario: ' + e.value);
+                    selectedScenario = 'r' + e.title;
+
                     input.attr('placeholder', 'Change selected scenario');
                     outer.append('a')
                         .attr('class', 'value combobox-input')
@@ -69,6 +79,7 @@ iD.ui.ScenarioViewer = function(context) {
                         .on('click', function() {
                             context.enter(iD.modes.Select(context, ['r' + e.title]))
                         });
+                    drawColors();
                 };
             })
             .send('GET');
@@ -100,6 +111,69 @@ iD.ui.ScenarioViewer = function(context) {
             .send('GET');
 
         return input;
+    }
+
+    function drawColors() {
+        try {
+            var scenarioEntity = context.entity(selectedScenario);
+        }
+        catch (e) {
+            console.log(e);
+            window.setTimeout(drawColors, 500);
+            return;
+        }
+        
+        var ways = [], 
+            relation = [], 
+            node = [];
+        for (var i = 0; i < scenarioEntity.members.length; i++) {
+            switch(scenarioEntity.members[i].type){
+                case "node":
+                    node.push(context.entity(scenarioEntity.members[i].id));
+                    break;
+                case "way":
+                    ways.push(context.entity(scenarioEntity.members[i].id));
+                    break;
+                case "relation":
+                    relation.push(context.entity(scenarioEntity.members[i].id));
+            }
+        }
+        
+        
+        var maxWay = getMaxTagValue(ways);
+        var maxRelation = getMaxTagValue(relation);
+  
+        console.log(maxWay);
+        console.log(maxRelation);
+
+        for (var i = 0; i < relation.length; i++) {
+            var color = getColor(relation[i].tags.value / maxRelation);
+            console.log(color);
+            d3.select(".area-fill .w"+relation[i].id.substr(1, relation[i].id.length))
+                .attr("style", "fill: "+ color);
+
+            console.log("set: " + color + " to " + relation[i].id);
+        }
+    }
+
+    function getMaxTagValue(array) {
+        var maxValue = 0;
+        for (var i = 0; i < array.length; i++) {
+            try {
+                if( maxValue < array[i].tags.value) 
+                    maxValue = array[i].tags.value;
+            }
+            catch(e) {
+
+            }
+        }
+        return maxValue;
+    }
+
+    //percentage value from 0 to 1
+    function getColor(value) {
+        var hue=((1-value)*120).toString(10);
+        return ["hsl(",hue,",100%,50%)"].join("");
     }
 
 

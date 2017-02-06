@@ -6,6 +6,7 @@
 </head>
 <body>
 	<script src='http://d3js.org/d3.v3.js'></script>
+	<script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
 
 	<script src='d3_timeseries.js'></script>
 	<script>
@@ -22,14 +23,29 @@
 						console.log(query.view);
 						if(query.view == 'load_profile') {
 							if(data.timeseries.load_profile != null) {
+								console.log(data.timeseries.load_profile);
 								ts.viewTimeseries(data.timeseries.load_profile);
+
+								var test = document.getElementById('tester');
+								Plotly.plot( test, [{
+									y: data.timeseries.load_profile,
+									x: 
+								}], {
+								margin: { t: 0 } } );
 							}
 							else {
 								alert('Keine Timeseries Daten');
 							}
 						}
 						else if (query.view == 'variable_costs') {
-							ts.viewTimeseries(data.timeseries.variable_costs);
+
+							console.log(data.timeseries.variable_costs);
+								ts.viewTimeseries(data.timeseries.variable_costs);
+
+								var test = document.getElementById('tester');
+								Plotly.plot( test, [{
+								data.timeseries.variable_costs}], {
+								margin: { t: 0 } } );
 						}
 			    	}
 	           		 else {
@@ -59,5 +75,7 @@
 			}
 	})()
 	</script>
+	<div id="tester" style="width:600px;height:250px;"></div>
+
 </body>
 </html>
