@@ -14,9 +14,6 @@ iD.ui.ScenarioViewer = function(context) {
         var entity = context.entity(id),
             tags = _.clone(entity.tags);
 
-        console.log("scenarioViewerscenarioViewer");
-        console.log(context);
-
         selection.selectAll('.simulateContainer').remove();
 
         var body = selection.selectAll('.inspector-body')
@@ -136,9 +133,11 @@ iD.ui.ScenarioViewer = function(context) {
                         entitys.node.push(context.entity(scenarioEntity.members[i].id));
                         break;
                     case "way":
-                        entitys.ways.push(context.entity(scenarioEntity.members[i].id));
+                        var way = context.entity(scenarioEntity.members[i].id);
+                        if(way.tags.type != 'hub_area')
+                            entitys.ways.push(way);
                         break;
-                    case "relation":
+                    case "relation": 
                         entitys.relation.push(context.entity(scenarioEntity.members[i].id));
                         break;
                 }
@@ -147,6 +146,40 @@ iD.ui.ScenarioViewer = function(context) {
             window.setTimeout(drawColors, 400);
             return;
         }
+
+
+        console.log(scenarioEntity);
+        console.log(entitys.ways);
+        console.log(entitys.relation);
+        var maxNode = getMaxTagValue(entitys.node);
+        var maxWay = getMaxTagValue(entitys.ways);
+        var maxRelation = getMaxTagValue(entitys.relation);
+        console.log(maxWay);
+        console.log(maxRelation);
+
+        // Draw Node
+        for (var i = 0; i < entitys.node.length; i++) {
+            var color = getColor(entitys.node[i].tags.value / maxNode);
+
+            createClass(".layer-hit .stroke ." + entitys.node[i].id, "fill: " + color);
+        }
+
+
+        // Draw Relation
+        for (var i = 0; i < entitys.relation.length; i++) {
+            var color = getColor(entitys.relation[i].tags.value / maxRelation);
+
+            createClass(".area-fill .w" + entitys.relation[i].id.substr(1, entitys.relation[i].id.length), "fill: " + color);
+        }
+
+        // Draw Ways
+        for (var i = 0; i < entitys.ways.length; i++) {
+            var color = getColor(entitys.ways[i].tags.value / maxWay);
+            console.log(color);
+
+            createClass(".layer-lines .line-stroke ." + entitys.ways[i].id, "stroke: " + color);
+        }
+
 
         function entitysLoaded() {
             for (var i = 0; i < scenarioEntity.members.length; i++) {
@@ -157,24 +190,6 @@ iD.ui.ScenarioViewer = function(context) {
                 }
             }
             return true;
-        }
-
-
-        var maxWay = getMaxTagValue(entitys.ways);
-        var maxRelation = getMaxTagValue(entitys.relation);
-
-        console.log(maxWay);
-        console.log(maxRelation);
-
-        for (var i = 0; i < entitys.relation.length; i++) {
-            var color = getColor(entitys.relation[i].tags.value / maxRelation);
-            console.log(color);
-            d3.select()
-                .attr("style", "fill: " + color);
-
-            console.log("set: " + color + " to " + entitys.relation[i].id);
-
-            createClass(".area-fill .w" + entitys.relation[i].id.substr(1, entitys.relation[i].id.length), "fill: " + color);
         }
     }
 
