@@ -210,8 +210,6 @@ iD.ui.MapData = function(context) {
             var items = selection.selectAll('li')
                 .data(data);
 
-            console.log(data);
-
             // Enter
             var enter = items.enter()
                 .append('li')

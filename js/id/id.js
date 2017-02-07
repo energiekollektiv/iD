@@ -5,6 +5,8 @@ window.iD = function () {
     var dispatch = d3.dispatch('enter', 'exit'),
         context = {};
 
+    window.iD.context = context;
+
     // https://github.com/openstreetmap/iD/issues/772
     // http://mathiasbynens.be/notes/localstorage-pattern#comment-9
     var storage;

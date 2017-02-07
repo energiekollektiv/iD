@@ -90,7 +90,8 @@ iD.ui.Inspector = function(context) {
         }
 
         var test = d3.select('.entity-editor-pane .inspector-body');
-        var $header = test.selectAll('#timeseriesLink')
+
+        var $header = test.selectAll('.timeseriesLink')
             .data([]);
 
         $header.exit().remove();
@@ -102,8 +103,8 @@ iD.ui.Inspector = function(context) {
             for (var i = links.length - 1; i >= 0; i--) {
                 var name = links[i].trim();
 
-                var $test = $header.data([0]).enter().append('a')
-                    .attr('id', 'timeseriesLink')
+                var $test = $header.data([0]).enter().append('button')
+                    .attr('class', 'timeseriesLink')
                     .attr('target', 'blank')
                     .on('click', function() {
                         d3.xhr('/' + entity.id.substring(0,1) + '/' + entity.id.substring(1, entity.id.length) + '/JSON' , function(error, xhr) {

@@ -10,7 +10,7 @@ var fs = require('fs'),
 
 function readtxt(f) {
     return fs.readFileSync(f, 'utf8');
-}
+} 
 
 function read(f) {
     return JSON.parse(readtxt(f));

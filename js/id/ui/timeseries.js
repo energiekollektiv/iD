@@ -10,56 +10,32 @@ function getTimeseries(timeseries) {
 
 
 
-  svgContainer = d3.select(document.createElementNS("http://www.w3.org/2000/svg", "svg"))
+  svgContainer = d3.select(document.createElementNS("http://www.w3.org/1999/xhtml","div"))
     .attr('width', svgConfig.width)
     .attr('height', svgConfig.height);
-
-  var x = d3.scale.ordinal().range([svgConfig.leftPadding, svgConfig.width]);
-  var y = d3.scale.linear().range([svgConfig.height - svgConfig.bottomPadding, svgConfig.paddingTop]); 
-
-  x.domain(timeseries, function(d,i) { return d; })
-    .rangeRoundBands([svgConfig.leftPadding, svgConfig.width], .2, .1);
-  y.domain([0, d3.max(timeseries, function(d) { return d; })]);
 
 
   svgContainer
     .selectAll('*')
     .remove();
 
-  // X und Y Achse erstellen
-  var abscissa = d3.svg.axis().scale(x).orient("bottom");
-  var ordinate = d3.svg.axis().scale(y).orient("left");
-
-  // Zeichnen der x-Achse
-  svgContainer.append("g")
-    .attr("class", "axis abscissa")
-    .attr("transform",  "translate(0, "+ (svgConfig.height - svgConfig.bottomPadding)+")")
-    .call(abscissa) 
-
-
-
-  // Zeichnen der y-Achse
-  svgContainer.append("g")
-    .attr("class", "axis ordinate")
-    .attr("transform", "translate("+(svgConfig.leftPadding)+", 0)")
-    .call(ordinate);
-
-
-
-  svgContainer
-    .selectAll('rect')
-    .data(timeseries)
-    .enter()
-    .append('rect')
-    .attr({ 
-      'x': function(d) { return x(d); },
-      'y':function(d){ return y(d); },
-      'height': function(d) { return svgConfig.height - svgConfig.bottomPadding - y(d); },
-      'width' : x.rangeBand()
-    })
-    .style({'stroke':'#adadad','stroke-width':'2px'});
+  Plotly.plot( svgContainer, [{
+      x: createXValues(timeseries.length),
+      y: timeseries
+    }], {
+      margin: { t: 0 } 
+    });
 
   return svgContainer;
+}
+
+
+function createXValues(count) {
+  var x = [];
+  for (var i = 0; i <= count; i++) {
+    x[i] = i + 1;
+  }
+  return x;
 }
 
 function isJson(item) {
