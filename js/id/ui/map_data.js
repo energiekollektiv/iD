@@ -4,7 +4,16 @@ iD.ui.MapData = function(context) {
         layers = context.layers(),
         fills = ['wireframe', 'partial', 'full'],
         fillDefault = context.storage('area-fill') || 'full',
-        fillSelected = fillDefault;
+        fillSelected = fillDefault,
+        scenarioColorSettings = ['relations', 'ways'],
+        scenarioColorSettingsDefault = context.storage('scenario_color_setting') || 'ways',
+        scenarioColorSettingSelected = scenarioColorSettingsDefault,
+        scenarioWaySettings = ['installed_power', 'efficiency', 'incoming'],
+        scenarioWaySettingsDefault = context.storage('scenario_way_setting') || 'installed_power',
+        scenarioWaySettingSelected = scenarioWaySettingsDefault,
+        scenarioRelationSettings = ['installed_power_rel', 'efficiency_rel', 'incoming_rel'],
+        scenarioRelationSettingsDefault = context.storage('scenario_relation_setting') || 'incoming_rel',
+        scenarioRelationSettingSelected = scenarioRelationSettingsDefault;
 
 
     function map_data(selection) {
@@ -26,6 +35,18 @@ iD.ui.MapData = function(context) {
             return fillSelected === d;
         }
 
+        function showsWaySetting(d) {
+            return scenarioWaySettingSelected === d;
+        }
+
+        function showsColorSetting(d) {
+            return scenarioColorSettingSelected === d;
+        }
+
+        function showsRelationSetting(d) {
+            return scenarioRelationSettingSelected === d;
+        }
+
         function setFill(d) {
             _.each(fills, function(opt) {
                 context.surface().classed('fill-' + opt, Boolean(opt === d));
@@ -35,6 +56,66 @@ iD.ui.MapData = function(context) {
             if (d !== 'wireframe') {
                 fillDefault = d;
                 context.storage('area-fill', d);
+            }
+            update();
+        }
+
+        function setScenarioColorSetting(d) {
+            _.each(scenarioColorSettings, function(opt) {
+                context.surface().classed('set-' + opt, Boolean(opt === d));
+            });
+
+            if (d != scenarioWaySettingSelected) {
+                scenarioColorSettingsDefault = d;
+                scenarioColorSettingSelected = d;
+                context.storage('scenario_color_setting', d);
+                context.scenario().updateMap();
+                updateForms();
+            }
+            update();
+        }
+
+        function updateForms() {
+            switch(scenarioColorSettingSelected) {
+                case "relations":
+                    d3.select("#map_data_scenario_relation")
+                        .style('display', "block");
+                    d3.select("#map_data_scenario_ways")
+                        .style('display', "none");
+                    break;
+                case "ways":
+                    d3.select("#map_data_scenario_ways")
+                        .style('display', "block");
+                    d3.select("#map_data_scenario_relation")
+                        .style('display', "none");
+                    break;
+            }
+        }
+
+        function setScenarioWaySetting(d) {
+            _.each(scenarioWaySettings, function(opt) {
+                context.surface().classed('set-' + opt, Boolean(opt === d));
+            });
+
+            if (d != scenarioWaySettingSelected) {
+                scenarioWaySettingSelected = d;
+                scenarioWaySettingsDefault = d;
+                context.storage('scenario_way_setting', d);
+                context.scenario().updateMap();
+            }
+            update();
+        }
+
+        function setScenarioRelationSetting(d) {
+            _.each(scenarioRelationSettings, function(opt) {
+                context.surface().classed('set-' + opt, Boolean(opt === d));
+            });
+
+            if (d != scenarioRelationSettingSelected) {
+                scenarioRelationSettingSelected = d;
+                scenarioRelationSettingsDefault = d;
+                context.storage('scenario_relation_setting', d);
+                context.scenario().updateMap();
             }
             update();
         }
@@ -236,7 +317,9 @@ iD.ui.MapData = function(context) {
                 .on('change', change);
 
             label.append('span')
-                .text(function(d) { return t(name + '.' + d + '.description'); });
+                .text(function(d) {
+                    return t(name + '.' + d + '.description');
+                });
 
             // Update
             items
@@ -257,7 +340,13 @@ iD.ui.MapData = function(context) {
             fillList.call(drawList, fills, 'radio', 'area_fill', setFill, showsFill);
 
             featureList.call(drawList, features, 'checkbox', 'feature', clickFeature, showsFeature);
-        }
+
+            scenarioElementColorList.call(drawList, scenarioColorSettings, 'radio', 'scenario_color_paining', setScenarioColorSetting, showsColorSetting);
+            scenarioWaysSettingsList.call(drawList, scenarioWaySettings, 'radio', 'scenario_ways_setting', setScenarioWaySetting, showsWaySetting);
+            scenarioRelationSettingsList.call(drawList, scenarioRelationSettings, 'radio', 'scenario_relation_setting', setScenarioRelationSetting, showsRelationSetting);
+       
+            //context.scenario().getLegend();
+       }
 
         function hidePanel() {
             setVisible(false);
@@ -275,7 +364,7 @@ iD.ui.MapData = function(context) {
                 d3.event.stopPropagation();
             }
             setFill((fillSelected === 'wireframe' ? fillDefault : 'wireframe'));
-            context.map().pan([0,0]);  // trigger a redraw
+            context.map().pan([0, 0]); // trigger a redraw
         }
 
         function setVisible(show) {
@@ -309,16 +398,16 @@ iD.ui.MapData = function(context) {
 
 
         var content = selection.append('div')
-                .attr('class', 'fillL map-overlay col3 content hide'),
+            .attr('class', 'fillL map-overlay col3 content hide'),
             tooltip = bootstrap.tooltip()
-                .placement('left')
-                .html(true)
-                .title(iD.ui.tooltipHtml(t('map_data.description'), key)),
+            .placement('left')
+            .html(true)
+            .title(iD.ui.tooltipHtml(t('map_data.description'), key)),
             button = selection.append('button')
-                .attr('tabindex', -1)
-                .on('click', togglePanel)
-                .call(iD.svg.Icon('#icon-data', 'light'))
-                .call(tooltip),
+            .attr('tabindex', -1)
+            .on('click', togglePanel)
+            .call(iD.svg.Icon('#icon-data', 'light'))
+            .call(tooltip),
             shown = false;
 
         content.append('h4')
@@ -369,28 +458,42 @@ iD.ui.MapData = function(context) {
         context.features()
             .on('change.map_data-update', update);
 
-
-        // Energy Sector
-        /*content.append('a')
-            .text(t('map_data.energy_sector'))
+        // Scenario Settings
+        content.append('a')
+            .text(t('map_data.scenario_color_painting'))
             .attr('href', '#')
             .classed('hide-toggle', true)
             .classed('expanded', false)
             .on('click', function() {
                 var exp = d3.select(this).classed('expanded');
-                energySectorContainer.style('display', exp ? 'none' : 'block');
+                scenarioElementColorContainer.style('display', exp ? 'none' : 'block');
+
                 d3.select(this).classed('expanded', !exp);
                 d3.event.preventDefault();
             });
-
-        var energySectorContainer = content.append('div')
-            .attr('class', 'data-feature-filters')
+        var scenarioElementColorContainer = content.append('div')
+            .attr('class', 'data-scenario-filters')
             .style('display', 'none');
+        var scenarioElementColorList = scenarioElementColorContainer.append('ul')
+            .attr('class', 'layer-list layer-scenario-list');
 
-        var featureList = energySectorContainer.append('ul')
-            .attr('class', 'layer-list layer-feature-list');
-        */
+        var scenarioWaysSettingsContainer = scenarioElementColorContainer.append('div')
+            .attr('class', 'data-scenario-filters')
+            .attr('id', 'map_data_scenario_ways')
+            .style('display', 'none');
+        var scenarioWaysSettingsList = scenarioWaysSettingsContainer.append('ul')
+            .attr('class', 'layer-list layer-scenario-list');
 
+        var scenarioRelationSettingsContainer = scenarioElementColorContainer.append('div')
+            .attr('class', 'data-scenario-filters')
+            .attr('id', 'map_data_scenario_relation')
+            .style('display', 'none');
+        var scenarioRelationSettingsList = scenarioRelationSettingsContainer.append('ul')
+            .attr('class', 'layer-list layer-scenario-list');
+
+        updateForms(); 
+
+        content.call(context.scenario().addLegend);
 
 
         setFill(fillDefault);

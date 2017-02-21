@@ -1,6 +1,6 @@
 iD.ui.PresetList = function(context) {
     var event = d3.dispatch('choose'),
-        scenarioViewer = iD.ui.ScenarioViewer(context),
+        scenarioViewer = context.scenario(),
         id,
         currentPreset,
         autofocus = false;
@@ -10,7 +10,7 @@ iD.ui.PresetList = function(context) {
             presets = context.presets().matchGeometry(geometry);
 
         scenarioViewer
-            .entityID(id);
+            .setEntityId(id);
 
         selection.html('');
 

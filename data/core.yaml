@@ -288,6 +288,10 @@ en:
     map_features: Map Features
     energy_sector: Energy Sector
     autohidden: "These features have been automatically hidden because too many would be shown on the screen.  You can zoom in to edit them."
+    scenario_settings: Scenario Settings
+    scenario_color_painting: "Choose Components to be colored"
+    scenario_way_painting: "Settings Ways"
+    scenario_relation_painting: "Settings Relations"
   feature:
     plant: 
       description: Plant
@@ -311,6 +315,33 @@ en:
     full:
       description: Full Fill
       tooltip: "Areas are drawn fully filled."
+  scenario_color_paining:
+    ways:
+      description: Ways
+      tooltip: empty
+    relations:
+      description: Relation
+      tooltip: empty
+  scenario_ways_setting:
+    installed_power:
+      description: Installed Power
+      tooltip: Tooltip
+    efficiency:
+      description: Efficiency
+      tooltip: Tooltip
+    incoming:
+      description: Incoming
+      tooltip: "Not available yet"
+  scenario_relation_setting:
+    installed_power_rel: 
+      description: test1
+      tooltip: empty
+    efficiency_rel: 
+      description: test2
+      tooltip: empty
+    incoming_rel: 
+      description: test3
+      tooltip: empty
   restore:
     heading: You have unsaved changes
     description: "Do you wish to restore unsaved changes from a previous editing session?"

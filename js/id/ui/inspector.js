@@ -1,7 +1,6 @@
 iD.ui.Inspector = function(context) {
     var presetList = iD.ui.PresetList(context),
         entityEditor = iD.ui.EntityEditor(context),
-        scenarioViewer = iD.ui.ScenarioViewer(context),
         state = 'select',
         entityID,
         newFeature = false;
@@ -18,9 +17,8 @@ iD.ui.Inspector = function(context) {
             .entityID(entityID)
             .on('choose', showList);
 
-        scenarioViewer
-            .state(state)
-            .entityID(entityID);    
+        var scenarioViewer = context.scenario();
+        scenarioViewer.setEntityId(entityID); 
 
         var $wrap = selection.selectAll('.panewrap')
             .data([0]);
@@ -55,8 +53,7 @@ iD.ui.Inspector = function(context) {
         if (showEditor) {
             $wrap.style('right', '0%');
             $editorPane.call(entityEditor);
-            $editorPane.call(scenarioViewer);
-
+            scenarioViewer.addSimulate($editorPane);
         } else {
             $wrap.style('right', '-100%');
             $presetPane.call(presetList);
@@ -70,7 +67,7 @@ iD.ui.Inspector = function(context) {
 
         selection.select('.footer')
             .call(iD.ui.ViewOnOSM(context)
-                .entityID(entityID));
+                .entityID(entityID));   
 
         function showList(preset) {
             $wrap.transition()

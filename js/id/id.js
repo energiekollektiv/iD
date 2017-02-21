@@ -40,6 +40,9 @@ window.iD = function () {
     context.connection = function() { return connection; };
     context.history = function() { return history; };
 
+    var scenario;
+    context.scenario = function() { return scenario;}
+
 
     /* Connection */
     function entitiesLoaded(err, result) {
@@ -209,6 +212,9 @@ window.iD = function () {
     context.surface = function() { return map.surface; };
     context.editable = function() { return map.editable(); };
 
+    var scenario;
+    context.scenario = function() { return scenario; };
+
     context.surfaceRect = function() {
         // Work around a bug in Firefox.
         //   http://stackoverflow.com/questions/18153989/
@@ -341,8 +347,9 @@ window.iD = function () {
     context.undo = withDebouncedSave(history.undo);
     context.redo = withDebouncedSave(history.redo);
 
+    scenario = iD.ui.Scenario(context);
     ui = iD.ui(context);
-
+    
     connection = iD.Connection();
 
     background = iD.Background(context);
