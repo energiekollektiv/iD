@@ -43,66 +43,6 @@ iD.ui.ScenarioViewer = function(context) {
         }
     }
 
-    scenarioViewer.initScenarioSelection = function(parent) {
-        var outer = prepend('div', parent)
-            .attr('class', 'foobar inspector-inner fillL cf')
-            .append('span');
-        outer.html('');
-        var input = outer.append('input')
-            .attr('class', 'value combobox-input')
-            .attr('type', 'text')
-            .attr('placeholder', 'Getting scenarios');
-        outer.append('div').attr('class', 'combobox-caret');
-
-        d3.xhr('/scenario')
-            .on('load', function(xhr) {
-                if (xhr.response === '') {
-                    input.attr('placeholder', 'Select a scenario');
-                } else {
-                    var e = JSON.parse(xhr.response);
-                    prepend('span', outer).text('Selected scenario: ' + e.value);
-                    input.attr('placeholder', 'Change selected scenario');
-                    outer.append('a')
-                        .attr('class', 'value combobox-input')
-                        .attr('href', '#')
-                        .text(e.value)
-                        .on('click', function() {
-                            context.enter(iD.modes.Select(context, ['r' + e.title]))
-                        });
-                };
-            })
-            .send('GET');
-
-        d3.xhr('/scenarios')
-            .on('load', function(xhr){
-                var data = JSON.parse(xhr.response);
-                input.call(d3.combobox()
-                    .data(data)
-                    .minItems(1)
-                    .on('accept', function (e) {
-                        d3.xhr('/scenario/' + e.title)
-                            .on('load', function (_) {
-                                if (e.title === null){
-                                    window.location.reload(true);
-                                    return ;
-                                };
-                                try {
-                                    context.enter(iD.modes.Select(context, ['r' + e.title]));
-                                    window.location.reload(true);
-                                }
-                                catch(err) {
-                                    window.location.reload(true);
-                                }
-                            })
-                            .send('PUT')}));
-                        input.attr('defaultValue', data[0]);
-            })
-            .send('GET');
-
-        return input;
-    }
-
-
     scenarioViewer.state = function(_) {
         if (!arguments.length) return state;
         state = _;
