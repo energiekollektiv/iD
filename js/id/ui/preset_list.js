@@ -102,8 +102,6 @@ iD.ui.PresetList = function(context) {
         var list = listWrap.append('div')
             .attr('class', 'preset-list fillL cf')
             .call(drawList, context.presets().defaults(geometry, 36));
-
-        scenarioViewer.initScenarioSelection(listWrap);
     }
 
     function drawList(list, presets) {
