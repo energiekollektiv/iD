@@ -122,6 +122,10 @@ iD.svg.Areas = function(projection) {
                 if (layer === 'fill') {
                     this.setAttribute('clip-path', 'url(#' + entity.id + '-clippath)');
                     setPattern.apply(this, arguments);
+                    
+                    if(entity.tags.energy_sector == "heat") {
+                        this.setAttribute('class', entity.type + ' area ' + layer + ' ' + entity.id + " redFill");
+                    }                
                 }
             })
             .call(iD.svg.TagClasses());

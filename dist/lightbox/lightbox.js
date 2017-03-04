@@ -7,10 +7,7 @@ function Lightbox(Content) {
  	var that = this;
  	this.animationId;
  	this.currentEvent;
- 	this.startOffset = {
- 		x: 0,
- 		y: 0
- 	};
+ 	this.startEvent;
 
 
  	this.container = d3.select('body')
@@ -20,13 +17,10 @@ function Lightbox(Content) {
 	this.container.append('div')
 		.attr('class', 'lightboxHeader')
 		.on('mousedown', function () {
-			d3.event.preventDefault();
-
+			d3.event.preventDefault();		
 			if(d3.event.target == that.container.select(".lightboxHeader")[0][0]) {
 				that.currentEvent = null;
-				that.startOffset.x = d3.event.offsetX;
-				that.startOffset.y = d3.event.offsetY;
-
+				that.startEvent = d3.event;
 				// Add Animation Loop and Move Listener
 				that.animationId = requestAnimationFrame(that.dragLightbox);
 				d3.select(document)
@@ -42,18 +36,15 @@ function Lightbox(Content) {
 					})
 			}
 		})
-		.append('button')
-			.attr('class', 'fr preset-close')
+		.append('a')
 			.on('click', function(e) {
 				that.close(e);
 			})
-			.call(iD.svg.Icon('#icon-close'));
+			.html('x');
 
-	var contentContainer = this.container.append('div')
-			.attr('class', 'lightboxContent');
-
-	//contentContainer.append(Content);
-	contentContainer.node().appendChild(Content.node());
+	this.container.append('div')
+			.attr('class', 'lightboxContent')
+			.html(Content);
 
 	this.close = function() {
 		that.container.remove();
@@ -61,15 +52,14 @@ function Lightbox(Content) {
 
 	this.dragLightbox = function () {
 		console.log("draw");
-		if(that.currentEvent != null) {
-			var x = (that.currentEvent.clientX - that.startOffset.x);
-			var y = (that.currentEvent.clientY - that.startOffset.y);
+		if(that.currentEvent != null && that.startEvent != null) {
+			var x = (that.currentEvent.clientX - that.startEvent.offsetX);
+			var y = (that.currentEvent.clientY - that.startEvent.offsetY);
 			that.container.style("left", x + "px");
 			that.container.style("top", y + "px");
-			that.container.style("bottom", "initial");
-			that.currentEvent = null;
+			this.currentEvent = null;
 		}
-		that.animationId = requestAnimationFrame(that.dragLightbox);
+		this.animationId = requestAnimationFrame(that.dragLightbox);
 	}
 
 	this.checkbounds = function () {
@@ -87,7 +77,8 @@ function Lightbox(Content) {
 		d3.select(document).on('mouseup',null);
 		d3.select(document).on('mouseout',null);
 
-		cancelAnimationFrame(that.animationId);
-		that.animationId = null;
+		cancelAnimationFrame(this.animationId);
+		this.animationId = null;
+		this.startEvent = null;
 	}
 };

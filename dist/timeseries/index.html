@@ -8,11 +8,12 @@
 	<input type="number" placeholder="ID" id="id" value="3"></input>
 	<input type="submit" id="submit"></input>
 	<script src='http://d3js.org/d3.v3.js'></script>
+		<script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+
 
 	<script src="d3_timeseries.js"></script>
 	<script>
 		(function init() {
-			ts = new timeseries();
 
 			d3.select('#submit')
 				.on('click', function(){
@@ -22,8 +23,9 @@
 						.on('load', function(xhr) {
 	            			if(isJson(xhr.response)) {
 	  							var data = JSON.parse(xhr.response);
-	  							if(data.timeseries.load_profile!=null)
-	  								ts.viewTimeseries(data.timeseries.load_profile);
+	  							if(data.timeseries.load_profile!=null) {
+	  								getTimeseries(data.timeseries.load_profile);
+	  							}
 	  							else
 	  								alert('Keine Timeseries Daten');
 					    	}
@@ -35,5 +37,7 @@
 				})
 		})()
 	</script>
+		<div id="tester"></div>
+
 </body>
 </html>

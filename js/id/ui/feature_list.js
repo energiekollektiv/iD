@@ -2,8 +2,7 @@ iD.ui.FeatureList = function(context) {
     var event = d3.dispatch('choose'),
         id,
         currentPreset,
-        geocodeResults,
-        scenarioViewer = iD.ui.ScenarioViewer(context);
+        geocodeResults;
 
     function featureList(selection) {
         var header = selection.append('div')

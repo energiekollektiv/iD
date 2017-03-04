@@ -1,9 +1,9 @@
 .DS_Store
 transifex.auth
 node_modules
+sftp-config.json
 npm-debug.log
 dist/*.js
-!dist/custom_widgets.js
 dist/*.css
 dist/img/*.svg
 dist/locales/en.json

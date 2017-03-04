@@ -195,8 +195,8 @@ en:
     title: Save Changes
     description_placeholder: Brief description of your contributions
     message_label: Changeset comment
-    upload_explanation: "The changes you upload will be written to the database."
-    upload_explanation_with_user: "The changes you upload as {user} will be written to the database."
+    upload_explanation: "The changes you upload will be visible on all maps that use OpenStreetMap data."
+    upload_explanation_with_user: "The changes you upload as {user} will be visible on all maps that use OpenStreetMap data."
     save: Save
     cancel: Cancel
     changes: "{count} Changes"
@@ -286,41 +286,22 @@ en:
     data_layers: Data Layers
     fill_area: Fill Areas
     map_features: Map Features
+    energy_sector: Energy Sector
     autohidden: "These features have been automatically hidden because too many would be shown on the screen.  You can zoom in to edit them."
+    scenario_settings: Scenario Settings
+    scenario_color_painting: "Choose Components to be colored"
+    scenario_way_painting: "Settings Ways"
+    scenario_relation_painting: "Settings Relations"
   feature:
-    points:
-      description: Points
-      tooltip: "Points of Interest"
-    traffic_roads:
-      description: Traffic Roads
-      tooltip: "Highways, Streets, etc."
-    service_roads:
-      description: Service Roads
-      tooltip: "Service Roads, Parking Aisles, Tracks, etc."
-    paths:
-      description: Paths
-      tooltip: "Sidewalks, Foot Paths, Cycle Paths, etc."
-    buildings:
-      description: Buildings
-      tooltip: "Buildings, Shelters, Garages, etc."
-    landuse:
-      description: Landuse Features
-      tooltip: "Forests, Farmland, Parks, Residential, Commercial, etc."
-    boundaries:
-      description: Boundaries
-      tooltip: "Administrative Boundaries"
-    water:
-      description: Water Features
-      tooltip: "Rivers, Lakes, Ponds, Basins, etc."
-    rail:
-      description: Rail Features
-      tooltip: "Railways"
-    power:
-      description: Power Features
-      tooltip: "Power Lines, Power Plants, Substations, etc."
-    past_future:
-      description: Past/Future
-      tooltip: "Proposed, Construction, Abandoned, Demolished, etc."
+    plant: 
+      description: Plant
+      tooltip: "All single points"
+    connection: 
+      description: Connection
+      tooltip: "All connections"
+    region: 
+      description: Region
+      tooltip: "All regions"
     others:
       description: Others
       tooltip: "Everything Else"
@@ -334,6 +315,33 @@ en:
     full:
       description: Full Fill
       tooltip: "Areas are drawn fully filled."
+  scenario_color_paining:
+    ways:
+      description: Ways
+      tooltip: empty
+    relations:
+      description: Relation
+      tooltip: empty
+  scenario_ways_setting:
+    installed_power:
+      description: Installed Power
+      tooltip: Tooltip
+    efficiency:
+      description: Efficiency
+      tooltip: Tooltip
+    incoming:
+      description: Incoming
+      tooltip: "Not available yet"
+  scenario_relation_setting:
+    installed_power_rel: 
+      description: test1
+      tooltip: empty
+    efficiency_rel: 
+      description: test2
+      tooltip: empty
+    incoming_rel: 
+      description: test3
+      tooltip: empty
   restore:
     heading: You have unsaved changes
     description: "Do you wish to restore unsaved changes from a previous editing session?"

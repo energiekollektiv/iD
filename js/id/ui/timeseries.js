@@ -9,22 +9,23 @@ function getTimeseries(timeseries) {
   };
 
 
-  svgContainer = document.createElementNS("http://www.w3.org/1999/xhtml","div");
-/*    .attr('width', svgConfig.width)
-    .attr('height', svgConfig.height);
-*/
 
-  console.log(svgContainer);
-  
+  svgContainer = d3.select(document.createElementNS("http://www.w3.org/1999/xhtml","div"))
+    .attr('width', svgConfig.width)
+    .attr('height', svgConfig.height);
+
+
+  svgContainer
+    .selectAll('*')
+    .remove();
+
   Plotly.plot( svgContainer, [{
-      x: [1, 2, 3, 4],
-      y: [12, 9, 15, 12]
+      x: createXValues(timeseries.length),
+      y: timeseries
     }], {
       margin: { t: 0 } 
     });
 
-
-  document.body.appendChild(svgContainer);
   return svgContainer;
 }
 
