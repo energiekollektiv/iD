@@ -3,7 +3,6 @@ iD.ui.Scenario = function(context) {
         legendContainer;
     var that = this;
 
-    window.ctx = context;
 
     var cssConfig = {
         ways: {

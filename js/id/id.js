@@ -1,4 +1,4 @@
-window.iD = function () {
+window.iD = function() {
     window.locale.en = iD.data.en;
     window.locale.current('en');
 
@@ -10,13 +10,21 @@ window.iD = function () {
     // https://github.com/openstreetmap/iD/issues/772
     // http://mathiasbynens.be/notes/localstorage-pattern#comment-9
     var storage;
-    try { storage = localStorage; } catch (e) {}  // eslint-disable-line no-empty
+    try {
+        storage = localStorage;
+    } catch (e) {} // eslint-disable-line no-empty
     storage = storage || (function() {
         var s = {};
         return {
-            getItem: function(k) { return s[k]; },
-            setItem: function(k, v) { s[k] = v; },
-            removeItem: function(k) { delete s[k]; }
+            getItem: function(k) {
+                return s[k];
+            },
+            setItem: function(k, v) {
+                s[k] = v;
+            },
+            removeItem: function(k) {
+                delete s[k];
+            }
         };
     })();
 
@@ -25,7 +33,7 @@ window.iD = function () {
             if (arguments.length === 1) return storage.getItem(k);
             else if (v === null) storage.removeItem(k);
             else storage.setItem(k, v);
-        } catch(e) {
+        } catch (e) {
             // localstorage quota exceeded
             /* eslint-disable no-console */
             if (typeof console !== 'undefined') console.error('localStorage quota exceeded');
@@ -36,9 +44,15 @@ window.iD = function () {
 
     /* Straight accessors. Avoid using these if you can. */
     var ui, connection, history;
-    context.ui = function() { return ui; };
-    context.connection = function() { return connection; };
-    context.history = function() { return history; };
+    context.ui = function() {
+        return ui;
+    };
+    context.connection = function() {
+        return connection;
+    };
+    context.history = function() {
+        return history;
+    };
 
 
 
@@ -72,8 +86,12 @@ window.iD = function () {
         if (zoomTo !== false) {
             this.loadEntity(id, function(err, result) {
                 if (err) return;
-                var entity = _.find(result.data, function(e) { return e.id === id; });
-                if (entity) { map.zoomTo(entity); }
+                var entity = _.find(result.data, function(e) {
+                    return e.id === id;
+                });
+                if (entity) {
+                    map.zoomTo(entity);
+                }
             });
         }
 
@@ -178,8 +196,11 @@ window.iD = function () {
 
 
     /* Copy/Paste */
-    var copyIDs = [], copyGraph;
-    context.copyGraph = function() { return copyGraph; };
+    var copyIDs = [],
+        copyGraph;
+    context.copyGraph = function() {
+        return copyGraph;
+    };
     context.copyIDs = function(_) {
         if (!arguments.length) return copyIDs;
         copyIDs = _;
@@ -190,12 +211,16 @@ window.iD = function () {
 
     /* Background */
     var background;
-    context.background = function() { return background; };
+    context.background = function() {
+        return background;
+    };
 
 
     /* Features */
     var features;
-    context.features = function() { return features; };
+    context.features = function() {
+        return features;
+    };
     context.hasHiddenConnections = function(id) {
         var graph = history.graph(),
             entity = graph.entity(id);
@@ -205,13 +230,23 @@ window.iD = function () {
 
     /* Map */
     var map;
-    context.map = function() { return map; };
-    context.layers = function() { return map.layers; };
-    context.surface = function() { return map.surface; };
-    context.editable = function() { return map.editable(); };
+    context.map = function() {
+        return map;
+    };
+    context.layers = function() {
+        return map.layers;
+    };
+    context.surface = function() {
+        return map.surface;
+    };
+    context.editable = function() {
+        return map.editable();
+    };
 
     var scenario;
-    context.scenario = function() { return scenario; };
+    context.scenario = function() {
+        return scenario;
+    };
 
     context.surfaceRect = function() {
         // Work around a bug in Firefox.
@@ -330,6 +365,7 @@ window.iD = function () {
     // Debounce save, since it's a synchronous localStorage write,
     // and history changes can happen frequently (e.g. when dragging).
     context.debouncedSave = _.debounce(context.save, 350);
+
     function withDebouncedSave(fn) {
         return function() {
             var result = fn.apply(history, arguments);
@@ -347,24 +383,14 @@ window.iD = function () {
 
     scenario = iD.ui.Scenario(context);
     ui = iD.ui(context);
-    
+
     connection = iD.Connection();
-
-    background = iD.Background(context);
-
-    features = iD.Features(context);
     connection.on("loaded", function() {
-        console.log("loaded");
-        console.log("loaded");
-        console.log("loaded");
         scenario.updateMap();
     });
-    connection.on("loading", function(data) {
-        console.log("loading");
-        console.log("loading");
-        console.log("loading");
-        console.log("loading");
-    });
+
+    background = iD.Background(context);
+    features = iD.Features(context);
 
     map = iD.Map(context);
     context.mouse = map.mouse;
@@ -390,20 +416,20 @@ iD.version = '0.0.1dev';
     var ua = navigator.userAgent,
         m = null;
 
-    m = ua.match(/(edge)\/?\s*(\.?\d+(\.\d+)*)/i);   // Edge
+    m = ua.match(/(edge)\/?\s*(\.?\d+(\.\d+)*)/i); // Edge
     if (m !== null) {
         detected.browser = m[1];
         detected.version = m[2];
     }
     if (!detected.browser) {
-        m = ua.match(/Trident\/.*rv:([0-9]{1,}[\.0-9]{0,})/i);   // IE11
+        m = ua.match(/Trident\/.*rv:([0-9]{1,}[\.0-9]{0,})/i); // IE11
         if (m !== null) {
             detected.browser = 'msie';
             detected.version = m[1];
         }
     }
     if (!detected.browser) {
-        m = ua.match(/(opr)\/?\s*(\.?\d+(\.\d+)*)/i);   // Opera 15+
+        m = ua.match(/(opr)\/?\s*(\.?\d+(\.\d+)*)/i); // Opera 15+
         if (m !== null) {
             detected.browser = 'Opera';
             detected.version = m[2];
@@ -424,7 +450,7 @@ iD.version = '0.0.1dev';
     }
 
     // keep major.minor version only..
-    detected.version = detected.version.split(/\W/).slice(0,2).join('.');
+    detected.version = detected.version.split(/\W/).slice(0, 2).join('.');
 
     if (detected.browser.toLowerCase() === 'msie') {
         detected.ie = true;
@@ -436,10 +462,9 @@ iD.version = '0.0.1dev';
     }
 
     // Added due to incomplete svg style support. See #715
-    detected.opera = (detected.browser.toLowerCase() === 'opera' && parseFloat(detected.version) < 15 );
+    detected.opera = (detected.browser.toLowerCase() === 'opera' && parseFloat(detected.version) < 15);
 
-    detected.locale = (navigator.languages && navigator.languages.length)
-        ? navigator.languages[0] : (navigator.language || navigator.userLanguage || 'en-US');
+    detected.locale = (navigator.languages && navigator.languages.length) ? navigator.languages[0] : (navigator.language || navigator.userLanguage || 'en-US');
 
     detected.filedrop = (window.FileReader && 'ondrop' in window);
 
@@ -450,19 +475,18 @@ iD.version = '0.0.1dev';
     if (nav('Win')) {
         detected.os = 'win';
         detected.platform = 'Windows';
-    }
-    else if (nav('Mac')) {
+    } else if (nav('Mac')) {
         detected.os = 'mac';
         detected.platform = 'Macintosh';
-    }
-    else if (nav('X11') || nav('Linux')) {
+    } else if (nav('X11') || nav('Linux')) {
         detected.os = 'linux';
         detected.platform = 'Linux';
-    }
-    else {
+    } else {
         detected.os = 'win';
         detected.platform = 'Unknown';
     }
 
-    iD.detect = function() { return detected; };
+    iD.detect = function() {
+        return detected;
+    };
 })();
