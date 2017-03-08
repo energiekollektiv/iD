@@ -46,9 +46,6 @@ iD.ui.Inspector = function(context) {
                 entity.isUsed(graph) ||
                 entity.isHighwayIntersection(graph);
 
-        console.log(entity.id);
-
-        console.log(entity);
 
         if (showEditor) {
             $wrap.style('right', '0%');

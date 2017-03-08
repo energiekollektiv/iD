@@ -5,11 +5,11 @@ iD.ui.MapData = function(context) {
         fills = ['wireframe', 'partial', 'full'],
         fillDefault = context.storage('area-fill') || 'full',
         fillSelected = fillDefault,
-        scenarioColorSettings = ['relations', 'ways'],
+        scenarioColorSettings = ['relations', 'ways', 'none'],
         scenarioColorSettingsDefault = context.storage('scenario_color_setting') || 'ways',
         scenarioColorSettingSelected = scenarioColorSettingsDefault,
-        scenarioWaySettings = ['installed_power', 'efficiency', 'incoming'],
-        scenarioWaySettingsDefault = context.storage('scenario_way_setting') || 'installed_power',
+        scenarioWaySettings = ['I', 'efficiency', 'incoming'],
+        scenarioWaySettingsDefault = context.storage('scenario_way_setting') || 'I',
         scenarioWaySettingSelected = scenarioWaySettingsDefault,
         scenarioRelationSettings = ['installed_power_rel', 'efficiency_rel', 'incoming_rel'],
         scenarioRelationSettingsDefault = context.storage('scenario_relation_setting') || 'incoming_rel',
@@ -86,6 +86,12 @@ iD.ui.MapData = function(context) {
                 case "ways":
                     d3.select("#map_data_scenario_ways")
                         .style('display', "block");
+                    d3.select("#map_data_scenario_relation")
+                        .style('display', "none");
+                    break;
+                case "none":
+                    d3.select("#map_data_scenario_ways")
+                        .style('display', "none");
                     d3.select("#map_data_scenario_relation")
                         .style('display', "none");
                     break;
@@ -490,6 +496,8 @@ iD.ui.MapData = function(context) {
             .style('display', 'none');
         var scenarioRelationSettingsList = scenarioRelationSettingsContainer.append('ul')
             .attr('class', 'layer-list layer-scenario-list');
+
+        console.log();
 
         updateForms(); 
 

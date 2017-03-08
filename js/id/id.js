@@ -40,8 +40,6 @@ window.iD = function () {
     context.connection = function() { return connection; };
     context.history = function() { return history; };
 
-    var scenario;
-    context.scenario = function() { return scenario;}
 
 
     /* Connection */
@@ -355,6 +353,18 @@ window.iD = function () {
     background = iD.Background(context);
 
     features = iD.Features(context);
+    connection.on("loaded", function() {
+        console.log("loaded");
+        console.log("loaded");
+        console.log("loaded");
+        scenario.updateMap();
+    });
+    connection.on("loading", function(data) {
+        console.log("loading");
+        console.log("loading");
+        console.log("loading");
+        console.log("loading");
+    });
 
     map = iD.Map(context);
     context.mouse = map.mouse;

@@ -322,9 +322,12 @@ en:
     relations:
       description: Relation
       tooltip: empty
+    none: 
+      description: None
+      tooltip: empty
   scenario_ways_setting:
-    installed_power:
-      description: Installed Power
+    I:
+      description: I
       tooltip: Tooltip
     efficiency:
       description: Efficiency

@@ -1,7 +1,27 @@
 iD.ui.Scenario = function(context) {
     var id,
-        selectedScenario,
         legendContainer;
+    var that = this;
+
+    window.ctx = context;
+
+    var cssConfig = {
+        ways: {
+            cssRule: "stroke",
+            additional: ".layer-lines .line-stroke"
+        },
+        relations: {
+            cssRule: "fill",
+            additional: function(id) {
+                return ".area-fill .w" + id.substr(1, id.length);
+            }
+        },
+        nodes: {
+            cssRule: "fill",
+            additional: ".layer-hit .stroke"
+        }
+    }
+
 
     /**
      * Add Simulate Button
@@ -56,6 +76,7 @@ iD.ui.Scenario = function(context) {
      * @return {[type]}   [description]
      */
     this.updateMap = function() {
+        console.log("drin");
         var addCss = document.getElementsByClassName('additionalCss');
         for (var i = 0; i < addCss.length; i++) {
             addCss[i].parentNode.removeChild(addCss[i]);
@@ -81,98 +102,66 @@ iD.ui.Scenario = function(context) {
                 relation: []
             };
 
-        // checks if everything is loaded
-        if (context.hasEntity(selectedScenario)) {
-            scenarioEntity = context.entity(selectedScenario);
-            console.log(scenarioEntity);
-            if (!entitysLoaded()) {
-                console.log("not loaded")
-                window.setTimeout(drawColors, 400);
-                return;
-            } else {
-                console.log("loaded !!!");
-            }
-        } else {
-            window.setTimeout(drawColors, 400);
-            return;
-        }
+        var stack = context.graph();
+        var entities = stack.entities.__proto__;
 
-        for (var i = 0; i < scenarioEntity.members.length; i++) {
-            switch (scenarioEntity.members[i].type) {
+
+        for (var item in entities) {
+            var entity = context.entity(item);
+            switch (entity.type) {
                 case "node":
-                    entitys.node.push(context.entity(scenarioEntity.members[i].id));
+                    entitys.node.push(entity);
                     break;
                 case "way":
-                    var way = context.entity(scenarioEntity.members[i].id);
-                    if (way.tags.type != 'hub_area')
-                        entitys.ways.push(way);
+                    if (entity.tags.type != 'hub_area')
+                        entitys.ways.push(entity);
                     break;
                 case "relation":
-                    entitys.relation.push(context.entity(scenarioEntity.members[i].id));
+                    entitys.relation.push(entity);
                     break;
             }
         }
 
-        // Draw Node
-        // setColor(entitys.node, scenarioSettings, "fill", ".layer-hit .stroke");
-        // Draw Relation
-        /*setColor(entitys.relation, scenarioSettings,"fill", function(id) {
-            return ".area-fill .w" + id.substr(1, id.length);
-        });*/
-        // Draw Ways
-        setColor(entitys, "stroke", ".layer-lines .line-stroke");
-
-        function entitysLoaded() {
-            for (var i = 0; i < scenarioEntity.members.length; i++) {
-                if (!context.hasEntity(scenarioEntity.members[i].id)) {
-                    return false;
-                }
-            }
-            return true;
-        }
+        draw(entitys);
     }
 
     /**
      * [setColor description]
      * @param {[type]} array            [description]
      * @param {[type]} cssRule          [description]
-     * @param {[text || function(id){returns text}]} addionalSelector [description]
+     * @param {[text || function(id){returns text}]} additional [description]
      */
-    function setColor(array, cssRule, addionalSelector) {
+    function draw(array) {
         var scenarioColorSettings = context.storage('scenario_color_setting') || 'ways';
         var maxValue;
+        var css = cssConfig[scenarioColorSettings];
+        console.log();
 
         clearLegend();
 
         if (scenarioColorSettings == "relations") {
-            var scenarioWaySettings = context.storage('scenario_relation_setting') || 'incoming_rel';
+            var scenarioRelationSettings = context.storage('scenario_relation_setting') || 'incoming_rel';
             // nothing !
         } else if (scenarioColorSettings == "ways") {
-            var scenarioWaySettings = context.storage('scenario_way_setting') || 'installed_power';
+            var scenarioWaySettings = context.storage('scenario_way_setting') || 'I';
+
             maxValue = getMaxTagValue(array.ways, scenarioWaySettings);
 
             for (var i = 0; i < array.ways.length; i++) {
-                try {
-                    var color;
-                    switch (scenarioWaySettings) {
-                        case "installed_power":
-                            color = getColor(((array.ways[i].tags.installed_power / maxValue) - 100) * (-1));
-                            createLabel(((array.ways[i].tags.installed_power / maxValue )  -1) * (-100), array.ways[i].tags.installed_power );
-                            break;
-                        case "efficiency":
-                            color = getColor(((array.ways[i].tags.efficiency / maxValue) - 100) * (-1));
-                            console.log((array.ways[i].tags.efficiency / maxValue) );
-                            console.log("dada");
-                            createLabel( ((array.ways[i].tags.efficiency / maxValue) - 1) * (-100), array.ways[i].tags.efficiency);
-                            break;
-                    }
+                if (typeof(array.ways[i].tags[scenarioWaySettings]) != 'undefined') {
+                    console.log(typeof(array.ways[i].tags[scenarioWaySettings]) != 'undefined');
+                    var color = getColor(((array.ways[i].tags[scenarioWaySettings] / maxValue) - 100) * (-1));
 
-                    if (typeof addionalSelector === 'function') {
-                        createClass(addionalSelector(array.ways[i].id), cssRule + ": " + color);
+                    if (typeof css.additional == 'function') {
+                        createClass(css.additional(array.ways[i].id), css.cssRule + ": " + color);
                     } else {
-                        createClass(addionalSelector + " ." + array.ways[i].id, cssRule + ": " + color);
+                        createClass(css.additional + " ." + array.ways[i].id, css.cssRule + ": " + color);
                     }
-                } catch (e) {}
+                }
+            }
+            if(maxValue != 0) {
+                createLabel(0, maxValue);
+                createLabel(50, maxValue/2);
             }
         }
     }
@@ -183,51 +172,17 @@ iD.ui.Scenario = function(context) {
      * @param  {[entity]} array [description]
      * @return {[number]}       [description]
      */
-    function getMaxTagValue(array, scenarioSettings) {
+    function getMaxTagValue(array, tag) {
         var maxValue = 0;
         for (var i = 0; i < array.length; i++) {
-            try {
-                switch (scenarioSettings) {
-                    case "installed_power":
-                        if (Number(maxValue) < Number(array[i].tags.installed_power)) {
-                            maxValue = array[i].tags.installed_power;
-                        }
-                        break;
-                    case "efficiency":
-                        if (Number(maxValue) < Number(array[i].tags.efficiency)) {
-                            maxValue = array[i].tags.efficiency;
-                        }
-                        break;
-                    case "null":
-                        return 0;
-                        break;
+            if (typeof(array[i].tags[tag] != 'undefined')) {
+                if (maxValue < Number(array[i].tags[tag])) {
+                    maxValue = Number(array[i].tags[tag]);
                 }
-            } catch (e) {
-                console.log(e);
             }
         }
         return maxValue;
     }
-
-    /**
-     * [getMinTagValue description]
-     * Returns min value of array entries of tags.value
-     * @param  {[entity]} array [description]
-     * @return {[number]}       [description]
-     */
-    /*function getMinTagValue(array) {
-        var mixValue = 0;
-        for (var i = 0; i < array.length; i++) {
-            try {
-                if (maxValue < array[i].tags.value) {
-                    maxValue = array[i].tags.value;
-                }
-            } catch (e) {
-
-            }
-        }
-        return maxValue;
-    }*/
 
     /**
      * [getColor description]
@@ -235,7 +190,7 @@ iD.ui.Scenario = function(context) {
      * 
      */
     function getColor(value) {
-        var hue = ((1 - value) * 120).toString(10);
+        var hue = ((1 - Number(value)) * 120).toString(10);
         return ["hsl(", hue, ",100%,50%)"].join("");
     }
 
@@ -276,7 +231,7 @@ iD.ui.Scenario = function(context) {
     }
 
     function createLabel(procent, text) {
-        console.log("drin");
+        console.log("createLabel");
         var label = document.createElement('div');
         label.className = "legendLabel";
 
@@ -284,11 +239,11 @@ iD.ui.Scenario = function(context) {
         span.className = "spanLabel";
         span.innerHTML = (Math.round(Number(text) * 100)) / 100;
 
-        legendContainer.append(label);    
+        legendContainer.append(label);
         legendContainer.append(span);
 
-        label.style.left = (Math.round((procent * 0.9)) + 5 ) + "%"; 
-        span.style.left = (Math.round((procent * 0.9)) + 5 ) + "%";
+        label.style.left = (Math.round((procent * 0.9)) + 5) + "%";
+        span.style.left = (Math.round((procent * 0.9)) + 5) + "%";
     }
 
     function clearLegend() {
